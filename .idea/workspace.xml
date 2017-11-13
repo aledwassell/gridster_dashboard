@@ -229,11 +229,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510594689115</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="adding numbers">
+      <created>1510602474618</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1510602474618</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6986000" />
+    <option name="totallyTimeSpent" value="7260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1278" height="758" extended-state="0" />

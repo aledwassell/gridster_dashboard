@@ -49,19 +49,24 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
         $scope.data = [300, 500, 100];
     })
     .controller('dashboard', function ($scope) {
+
+        $scope.numbers = {
+            number: 0845788927
+        }
+
         $scope.standardItems = [
-            { sizeX: 1, sizeY: 1, row: 0, col: 5 },
-            { sizeX: 1, sizeY: 1, row: 0, col: 5 }
+            { sizeX: 1, sizeY: 1, row: 0, col: 8, number: 0845788927, calls: 237 },
+            { sizeX: 1, sizeY: 1, row: 0, col: 8, number: 0845898989, calls: 657 }
         ];
         $scope.lineChart = [
-            { sizeX: 3, sizeY: 2, row: 0, col: 2 }
+            { sizeX: 5, sizeY: 2, row: 0, col: 2 }
         ];
         $scope.doughnutChart = [
             { sizeX: 2, sizeY: 1.5, row: 0, col: 0 },
             { sizeX: 2, sizeY: 2, row: 0, col: 0 }
         ];
         $scope.gridsterOpts = {
-            columns: 6, // the width of the grid, in columns
+            columns: 8, // the width of the grid, in columns
             pushing: true, // whether to push other items out of the way on move or resize
             floating: true, // whether to automatically float items up so they stack (you can temporarily disable if you are adding unsorted items with ng-repeat)
             swapping: false, // whether or not to have items of the same size switch places instead of pushing down if they are the same size

@@ -6,9 +6,12 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
                 templateUrl : "views/home.html"
             })
             .when("/dashboard", {
-                cotroller: "dashboard",
-                templateUrl : "views/dashboard.html"
+                templateUrl : "views/dashboard.html",
+                controller: "dashboard"
             });
+    })
+    .controller("home", function ($scope) {
+        $scope.name = 'Aled Wassell';
     })
     .controller("LineCtrl", function ($scope) {
 

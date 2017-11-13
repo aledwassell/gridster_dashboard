@@ -3,11 +3,11 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
         $routeProvider
             .when("/", {
                 controller: "home",
-                templateUrl : "home.htm"
+                templateUrl : "views/home.html"
             })
             .when("/dashboard", {
                 cotroller: "dashboard",
-                templateUrl : "dashboard.htm"
+                templateUrl : "views/dashboard.html"
             });
     })
     .controller("LineCtrl", function ($scope) {

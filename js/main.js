@@ -44,9 +44,34 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
             }
         };
     })
+    .controller("MixedChartCtrl",
+        function ($scope) {
+            $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+
+            $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            $scope.data = [
+                [65, -59, 80, 81, -56, 55, -40],
+                [28, 48, -40, 19, 86, 27, 90]
+            ];
+            $scope.datasetOverride = [
+                {
+                    label: "Bar chart",
+                    borderWidth: 1,
+                    type: 'bar'
+                },
+                {
+                    label: "Line chart",
+                    borderWidth: 3,
+                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                    hoverBorderColor: "rgba(255,99,132,1)",
+                    type: 'line'
+                }
+            ];
+        })
+
     .controller("DoughnutCtrl", function ($scope) {
         $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-        $scope.data = [300, 500, 100];
+        $scope.data = [300, 500, 100, 450];
     })
     .controller('dashboard', function ($scope) {
 
@@ -59,10 +84,13 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
             { sizeX: 1, sizeY: 1, row: 0, col: 8, number: 0845898989, calls: 657 }
         ];
         $scope.lineChart = [
-            { sizeX: 5, sizeY: 2, row: 0, col: 2 }
+            { sizeX: 5, sizeY: 3, row: 0, col: 2 }
+        ];
+        $scope.barChart = [
+            { sizeX: 5, sizeY: 3, row: 2, col: 2 }
         ];
         $scope.doughnutChart = [
-            { sizeX: 2, sizeY: 1.5, row: 0, col: 0 },
+            { sizeX: 2, sizeY: 2, row: 0, col: 0 },
             { sizeX: 2, sizeY: 2, row: 0, col: 0 }
         ];
         $scope.gridsterOpts = {

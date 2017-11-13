@@ -10,7 +10,7 @@
                 </div>
             </li>
             <li gridster-item="item" ng-repeat="item in lineChart" class="panel panel-default">
-                <div class="panel-heading">Heading</div>
+                <div class="panel-heading">Line Chart</div>
                 <div class="panel-body">
                     <div ng-controller="LineCtrl">
                         <canvas id="line" class="chart chart-line" chart-data="data"
@@ -20,8 +20,19 @@
                     </div>
                 </div>
             </li>
+            <li gridster-item="item" ng-repeat="item in barChart" class="panel panel-default">
+                <div class="panel-heading">Line Chart</div>
+                <div class="panel-body">
+                    <div ng-controller="MixedChartCtrl">
+                        <canvas id="line" class="chart chart-line" chart-data="data"
+                                chart-labels="labels" chart-series="series" chart-options="options"
+                                chart-dataset-override="datasetOverride" chart-click="onClick">
+                        </canvas>
+                    </div>
+                </div>
+            </li>
             <li gridster-item="item" ng-repeat="item in doughnutChart" class="panel panel-default">
-                <div class="panel-heading">Heading</div>
+                <div class="panel-heading">Queues</div>
                 <div class="panel-body">
                     <div ng-controller="DoughnutCtrl">
                         <canvas id="doughnut" class="chart chart-doughnut pull-left"

@@ -2,12 +2,16 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
-                controller: "home",
-                templateUrl : "views/home.html"
+                templateUrl: "views/home.html",
+                controller: "home"
             })
             .when("/dashboard", {
-                templateUrl : "views/dashboard.html",
+                templateUrl: "views/dashboard.html",
                 controller: "dashboard"
+            })
+            .when("/dash_framework", {
+                templateUrl: "views/dashboard_framework.html",
+                controller: "dashboard_framework"
             });
     })
     .controller("home", function ($scope) {
@@ -132,3 +136,6 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
             }
         };
     })
+.controller("dashboard_framework", function($scope){
+    $scope.test = "Wahhhoooooo";
+})

@@ -27,6 +27,7 @@
     "angular-dashboard-framework": "^0.12.0",
     "adf-structures-base": "^0.1.1",
     "adf-widget-clock": "^0.1.3",
-    "adf-widget-weather": "^0.2.0"
+    "adf-widget-weather": "^0.2.0",
+    "sb-admin": "*"
   }
 }

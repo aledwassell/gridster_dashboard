@@ -18,6 +18,10 @@
                 .when("/dash_framework", {
                     templateUrl: "views/dashboard_framework.html",
                     controller: "dashboard_framework"
+                })
+                .when("/", {
+                    templateUrl: "views/sb-admin.html",
+                    controller: "sb-admin"
                 });
             dashboardProvider
                 .structure('6-6', {
@@ -216,6 +220,8 @@
             };
         })
         .controller("dashboard_framework", function ($scope) {
+        })
+        .controller('sb-admin', function ($scope) {
 
         })
 

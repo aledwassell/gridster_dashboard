@@ -4,7 +4,7 @@
         document.styleSheets[15].insertRule(`.rebranded-header { background: ${this.value} !important;}`, 0);
     });
 
-    angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather'])
+    angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget'])
         .config(function ($routeProvider, dashboardProvider) {
             $routeProvider
                 .when("/", {

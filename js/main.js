@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
+angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'adf', 'adf.widget.weather'])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
@@ -137,5 +137,5 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
         };
     })
 .controller("dashboard_framework", function($scope){
-    $scope.test = "Wahhhoooooo";
+
 })

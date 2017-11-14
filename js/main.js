@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'adf', 'adf.widget.weather', 'ui.bootstrap'])
+angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'adf', 'adf.widget.weather'])
     .config(function($routeProvider, dashboardProvider) {
         $routeProvider
             .when("/", {
@@ -13,8 +13,6 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'adf', 'adf.widget.wea
                 templateUrl: "views/dashboard_framework.html",
                 controller: "dashboard_framework"
             });
-
-
         dashboardProvider
             .structure('6-6', {
                 rows: [{
@@ -27,14 +25,6 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'adf', 'adf.widget.wea
                     }]
                 }]
             });
-
-
-
-
-
-
-
-
     })
     .controller("home", function ($scope) {
         $scope.name = 'Aled Wassell';

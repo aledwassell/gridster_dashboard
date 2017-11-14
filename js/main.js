@@ -1,5 +1,5 @@
-angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'adf', 'adf.widget.weather'])
-    .config(function($routeProvider, dashboardProvider) {
+angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
+    .config(function($routeProvider) {
         $routeProvider
             .when("/", {
                 templateUrl: "views/home.html",
@@ -8,23 +8,23 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'adf', 'adf.widget.wea
             .when("/dashboard", {
                 templateUrl: "views/dashboard.html",
                 controller: "dashboard"
-            })
-            .when("/dash_framework", {
-                templateUrl: "views/dashboard_framework.html",
-                controller: "dashboard_framework"
             });
-        dashboardProvider
-            .structure('6-6', {
-                rows: [{
-                    columns: [{
-                        styleClass: 'col-md-4'
-                    }, {
-                        styleClass: 'col-md-6'
-                    }, {
-                        styleClass: 'col-md-2'
-                    }]
-                }]
-            });
+            // .when("/dash_framework", {
+            //     templateUrl: "views/dashboard_framework.html",
+            //     controller: "dashboard_framework"
+            // });
+        // dashboardProvider
+        //     .structure('6-6', {
+        //         rows: [{
+        //             columns: [{
+        //                 styleClass: 'col-md-4'
+        //             }, {
+        //                 styleClass: 'col-md-6'
+        //             }, {
+        //                 styleClass: 'col-md-2'
+        //             }]
+        //         }]
+        //     });
     })
     .controller("home", function ($scope) {
         $scope.name = 'Aled Wassell';
@@ -148,6 +148,6 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'adf', 'adf.widget.wea
             }
         };
     })
-.controller("dashboard_framework", function($scope){
-
-})
+// .controller("dashboard_framework", function($scope){
+//
+// })

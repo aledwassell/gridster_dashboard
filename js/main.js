@@ -1,5 +1,5 @@
-angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
-    .config(function($routeProvider) {
+angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base'])
+    .config(function($routeProvider, dashboardProvider) {
         $routeProvider
             .when("/", {
                 templateUrl: "views/home.html",
@@ -8,23 +8,23 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
             .when("/dashboard", {
                 templateUrl: "views/dashboard.html",
                 controller: "dashboard"
+            })
+            .when("/dash_framework", {
+                templateUrl: "views/dashboard_framework.html",
+                controller: "dashboard_framework"
             });
-            // .when("/dash_framework", {
-            //     templateUrl: "views/dashboard_framework.html",
-            //     controller: "dashboard_framework"
-            // });
-        // dashboardProvider
-        //     .structure('6-6', {
-        //         rows: [{
-        //             columns: [{
-        //                 styleClass: 'col-md-4'
-        //             }, {
-        //                 styleClass: 'col-md-6'
-        //             }, {
-        //                 styleClass: 'col-md-2'
-        //             }]
-        //         }]
-        //     });
+        dashboardProvider
+            .structure('6-6', {
+                rows: [{
+                    columns: [{
+                        styleClass: 'col-md-4'
+                    }, {
+                        styleClass: 'col-md-6'
+                    }, {
+                        styleClass: 'col-md-2'
+                    }]
+                }]
+            });
     })
     .controller("home", function ($scope) {
         $scope.name = 'Aled Wassell';
@@ -89,6 +89,54 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
         $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
         $scope.data = [300, 500, 100, 450];
     })
+    .controller("googleGauge", function($scope) {
+
+        $scope.myChartObject = {};
+        $scope.myChartObject.type = "Gauge";
+
+        $scope.myChartObject.options = {
+            width: 180,
+            height: 180,
+            redFrom: 90,
+            redTo: 100,
+            yellowFrom: 75,
+            yellowTo: 90,
+            minorTicks: 5
+        };
+
+        $scope.myChartObject.data = [
+            ['Label', 'Value'],
+            ['Queues', 30]
+        ];
+    })
+    .controller("googleGeoChart", function($scope) {
+
+        var chart1 = {};
+        chart1.type = "GeoChart";
+        chart1.data = [
+            ['Locale', 'Count', 'Percent'],
+            ['GB', 22, 23],
+            ['Ireland', 57, 32]
+        ];
+
+        chart1.options = {
+            width: 700,
+            height: 400,
+            region: 'GB',
+            chartArea: {left:10,top:10,bottom:0,height:"100%"},
+            colorAxis: {colors: ['#aec7e8', '#1f77b4']},
+            displayMode: 'regions'
+        };
+
+        chart1.formatters = {
+            number : [{
+                columnNum: 1,
+                pattern: "$ #,##0.00"
+            }]
+        };
+
+        $scope.chart = chart1;
+    })
     .controller('dashboard', function ($scope) {
 
         $scope.numbers = {
@@ -109,6 +157,13 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
             { sizeX: 2, sizeY: 2, row: 0, col: 0 },
             { sizeX: 2, sizeY: 2, row: 0, col: 0 }
         ];
+        $scope.googleGauge = [
+            { sizeX: 2, sizeY: 2, row: 0, col: 0 },
+            { sizeX: 2, sizeY: 2, row: 0, col: 0 }
+        ];
+        $scope.geoCharts = [
+            { sizeX: 5, sizeY: 3, row: 0, col: 2 }
+        ];
         $scope.gridsterOpts = {
             columns: 8, // the width of the grid, in columns
             pushing: true, // whether to push other items out of the way on move or resize
@@ -117,7 +172,7 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
             width: 'auto', // can be an integer or 'auto'. 'auto' scales gridster to be the full width of its containing element
             colWidth: 'auto', // can be an integer or 'auto'.  'auto' uses the pixel width of the element divided by 'columns'
             rowHeight: 'match', // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
-            margins: [10, 10], // the pixel distance between each widget
+            margins: [5, 5], // the pixel distance between each widget
             outerMargin: true, // whether margins apply to outer edges of the grid
             sparse: false, // "true" can increase performance of dragging and resizing for big grid (e.g. 20x50)
             isMobile: false, // stacks the grid items if true
@@ -148,6 +203,6 @@ angular.module('app', ['ngRoute', 'chart.js', 'gridster'])
             }
         };
     })
-// .controller("dashboard_framework", function($scope){
-//
-// })
+.controller("dashboard_framework", function($scope){
+
+})

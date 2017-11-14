@@ -41,6 +41,26 @@
                     </div>
                 </div>
             </li>
+            <li gridster-item="item" ng-repeat="item in googleGauge" class="panel panel-default">
+                <div class="panel-heading">
+                    Google Gauge
+                </div>
+                <div class="panel-body">
+                    <div ng-controller="googleGauge">
+                        <div google-chart chart="myChartObject" style="height:130px; width:100%;"></div>
+                    </div>
+                </div>
+            </li>
+            <li gridster-item="item" ng-repeat="item in geoCharts" class="panel panel-default">
+                <div class="panel-heading">
+                    Google Geo Chart
+                </div>
+                <div class="panel-body">
+                    <div ng-controller="googleGeoChart">
+                        <div google-chart chart="chart"></div>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
 </div>

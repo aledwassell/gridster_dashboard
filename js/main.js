@@ -4,7 +4,7 @@
         document.styleSheets[15].insertRule(`.rebranded-header { background: ${this.value} !important;}`, 0);
     });
 
-    angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget'])
+    angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget', 'ui.bootstrap'])
         .config(function ($routeProvider, dashboardProvider) {
             $routeProvider
                 .when("/", {
@@ -105,8 +105,8 @@
             $scope.myChartObject.type = "Gauge";
 
             $scope.myChartObject.options = {
-                width: 180,
-                height: 180,
+                width: 200,
+                height: 200,
                 redFrom: 90,
                 redTo: 100,
                 yellowFrom: 75,
@@ -130,8 +130,8 @@
             ];
 
             chart1.options = {
-                width: 700,
-                height: 400,
+                width: 600,
+                height: 300,
                 region: 'GB',
                 chartArea: {left: 10, top: 10, bottom: 0, height: "100%"},
                 colorAxis: {colors: ['#aec7e8', '#1f77b4']},
@@ -149,40 +149,37 @@
         })
         .controller('dashboard', function ($scope) {
 
-            $scope.numbers = {
-                number: 0845788927
-            }
-
             $scope.standardItems = [
-                {sizeX: 1, sizeY: 1, row: 0, col: 8, number: 0845788927, calls: 237},
-                {sizeX: 1, sizeY: 1, row: 0, col: 8, number: 0845898989, calls: 657}
+                {
+                    sizeX: 3, sizeY: 2, row: 0, col: 10, callVolume: [
+                        {number: 0845788927, calls: 237},
+                        {number: 0845898989, calls: 657}
+                    ]
+                }
             ];
             $scope.lineChart = [
-                {sizeX: 5, sizeY: 3, row: 0, col: 2}
+                {sizeX: 7, sizeY: 5, row: 0, col: 2}
             ];
             $scope.barChart = [
-                {sizeX: 5, sizeY: 3, row: 2, col: 2}
-            ];
-            $scope.doughnutChart = [
-                {sizeX: 2, sizeY: 2, row: 0, col: 0},
-                {sizeX: 2, sizeY: 2, row: 0, col: 0}
+                {sizeX: 7, sizeY: 5, row: 2, col: 2}
             ];
             $scope.googleGauge = [
+                {sizeX: 2, sizeY: 3, row: 0, col: 0},
+                {sizeX: 2, sizeY: 3, row: 0, col: 0}
+            ];
+            $scope.googleGaugeNoPanel = [
                 {sizeX: 2, sizeY: 2, row: 0, col: 0},
                 {sizeX: 2, sizeY: 2, row: 0, col: 0}
             ];
-            $scope.geoCharts = [
-                {sizeX: 5, sizeY: 3, row: 0, col: 2}
-            ];
             $scope.gridsterOpts = {
-                columns: 8, // the width of the grid, in columns
+                columns: 12, // the width of the grid, in columns
                 pushing: true, // whether to push other items out of the way on move or resize
                 floating: true, // whether to automatically float items up so they stack (you can temporarily disable if you are adding unsorted items with ng-repeat)
                 swapping: false, // whether or not to have items of the same size switch places instead of pushing down if they are the same size
                 width: 'auto', // can be an integer or 'auto'. 'auto' scales gridster to be the full width of its containing element
                 colWidth: 'auto', // can be an integer or 'auto'.  'auto' uses the pixel width of the element divided by 'columns'
                 rowHeight: 'match', // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
-                margins: [5, 5], // the pixel distance between each widget
+                margins: [15, 15], // the pixel distance between each widget
                 outerMargin: true, // whether margins apply to outer edges of the grid
                 sparse: false, // "true" can increase performance of dragging and resizing for big grid (e.g. 20x50)
                 isMobile: false, // stacks the grid items if true
@@ -222,6 +219,9 @@
         .controller("dashboard_framework", function ($scope) {
         })
         .controller('sb-admin', function ($scope) {
+
+        })
+        .controller('settingsController', function($scope, $uibModal){
 
         })
 

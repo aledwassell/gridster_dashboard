@@ -2,10 +2,32 @@
     <div gridster="gridsterOpts">
         <ul>
             <li gridster-item="item" ng-repeat="item in standardItems" class="panel panel-default">
-                <div class="panel-heading rebranded-header rebranded-text">Number: {{item.number}}</div>
-                <div class="panel-body text-center">
+                <div class="panel-heading rebranded-header rebranded-text">Call Volume</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Number
+                                </th>
+                                <th>
+                                    Calls
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="calls in item.callVolume">
+                                <td>
+                                    {{calls.number}}
+                                </td>
+                                <td>
+                                    {{calls.calls}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <h2>
-                        {{item.calls}}
+
                     </h2>
                 </div>
             </li>
@@ -31,16 +53,6 @@
                     </div>
                 </div>
             </li>
-            <li gridster-item="item" ng-repeat="item in doughnutChart" class="panel panel-default">
-                <div class="panel-heading rebranded-header rebranded-text">Queues</div>
-                <div class="panel-body">
-                    <div ng-controller="DoughnutCtrl">
-                        <canvas id="doughnut" class="chart chart-doughnut pull-left"
-                                chart-data="data" chart-labels="labels">
-                        </canvas>
-                    </div>
-                </div>
-            </li>
             <li gridster-item="item" ng-repeat="item in googleGauge" class="panel panel-default">
                 <div class="panel-heading rebranded-header rebranded-text">
                     Google Gauge
@@ -51,14 +63,9 @@
                     </div>
                 </div>
             </li>
-            <li gridster-item="item" ng-repeat="item in geoCharts" class="panel panel-default">
-                <div class="panel-heading rebranded-header rebranded-text">
-                    Google Geo Chart
-                </div>
-                <div class="panel-body">
-                    <div ng-controller="googleGeoChart">
-                        <div google-chart chart="chart"></div>
-                    </div>
+            <li gridster-item="item" ng-repeat="item in googleGaugeNoPanel">
+                <div ng-controller="googleGauge">
+                    <div google-chart chart="myChartObject" style="height:130px; width:100%;"></div>
                 </div>
             </li>
         </ul>

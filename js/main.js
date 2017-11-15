@@ -20,7 +20,7 @@
                     controller: "dashboard_framework"
                 })
                 .when("/", {
-                    templateUrl: "views/sb-admin.html",
+                    templateUrl: "bower_components/sb-admin/app/index.html",
                     controller: "sb-admin"
                 });
             dashboardProvider
@@ -209,7 +209,7 @@
                 },
                 draggable: {
                     enabled: true, // whether dragging items is supported
-                    handle: '.my-class', // optional selector for drag handle
+                    // handle: '.my-class', // optional selector for drag handle
                     start: function (event, $element, widget) {
                     }, // optional callback fired when drag is started,
                     drag: function (event, $element, widget) {

@@ -5,6 +5,10 @@
     });
 
     angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget', 'ui.bootstrap'])
+        .service('service', function(){
+            this.width;
+            this.height;
+        })
         .config(function ($routeProvider, dashboardProvider) {
             $routeProvider
                 .when("/", {
@@ -99,26 +103,6 @@
             $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
             $scope.data = [300, 500, 100, 450];
         })
-        .controller("googleGauge", function ($scope) {
-
-            $scope.myChartObject = {};
-            $scope.myChartObject.type = "Gauge";
-
-            $scope.myChartObject.options = {
-                width: 200,
-                height: 200,
-                redFrom: 90,
-                redTo: 100,
-                yellowFrom: 75,
-                yellowTo: 90,
-                minorTicks: 5
-            };
-
-            $scope.myChartObject.data = [
-                ['Label', 'Value'],
-                ['Queues', 30]
-            ];
-        })
         .controller("googleGeoChart", function ($scope) {
 
             var chart1 = {};
@@ -130,7 +114,7 @@
             ];
 
             chart1.options = {
-                width: 600,
+                width: function(){return document.getElementById('gaugePanel').offsetWidth},
                 height: 300,
                 region: 'GB',
                 chartArea: {left: 10, top: 10, bottom: 0, height: "100%"},
@@ -147,8 +131,8 @@
 
             $scope.chart = chart1;
         })
-        .controller('dashboard', function ($scope) {
-
+        .controller('dashboard', ['$scope', '$rootScope', 'service', function ($scope, $rootscope, service) {
+            $scope.service = service;
             $scope.standardItems = [
                 {
                     sizeX: 3, sizeY: 2, row: 0, col: 10, callVolume: [
@@ -164,12 +148,7 @@
                 {sizeX: 7, sizeY: 5, row: 2, col: 2}
             ];
             $scope.googleGauge = [
-                {sizeX: 2, sizeY: 3, row: 0, col: 0},
                 {sizeX: 2, sizeY: 3, row: 0, col: 0}
-            ];
-            $scope.googleGaugeNoPanel = [
-                {sizeX: 2, sizeY: 2, row: 0, col: 0},
-                {sizeX: 2, sizeY: 2, row: 0, col: 0}
             ];
             $scope.gridsterOpts = {
                 columns: 12, // the width of the grid, in columns
@@ -200,6 +179,14 @@
                     start: function (event, $element, widget) {
                     }, // optional callback fired when resize is started,
                     resize: function (event, $element, widget) {
+                        console.log(event, $element, widget)
+                        if(widget) {
+                            $scope.service.width = document.getElementById('gaugePanel').offsetWidth - 45;
+                            $scope.service.height = document.getElementById('gaugePanel').offsetHeight - 45;
+                        } else{
+                            return;
+                        }
+
                     }, // optional callback fired when item is resized,
                     stop: function (event, $element, widget) {
                     } // optional callback fired when item is finished resizing
@@ -215,15 +202,39 @@
                     } // optional callback fired when item is finished dragging
                 }
             };
-        })
+        }])
+        .controller("googleGauge", ['$scope', '$rootScope', 'service', function ($scope, $rootScope, service) {
+
+            $scope.service = service;
+
+            $scope.$watch('service.width', function(newValue){
+                $scope.myChartObject = {};
+                $scope.myChartObject.type = "Gauge";
+                $scope.myChartObject.options = {
+                    width: newValue,
+                    height: $scope.service.height,
+                    redFrom: 90,
+                    redTo: 100,
+                    yellowFrom: 75,
+                    yellowTo: 90,
+                    minorTicks: 5
+                };
+
+                $scope.myChartObject.data = [
+                    ['Label', 'Value'],
+                    ['Queues', 30]
+                ];
+            });
+
+        }])
         .controller("dashboard_framework", function ($scope) {
         })
         .controller('sb-admin', function ($scope) {
 
         })
-        .controller('settingsController', function($scope, $uibModal){
+        .controller('settingsController', ['$scope', '$uibModal', function($scope, $uibModal){
 
-        })
+        }]);
 
 
 })();

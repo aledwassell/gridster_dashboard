@@ -53,19 +53,14 @@
                     </div>
                 </div>
             </li>
-            <li gridster-item="item" ng-repeat="item in googleGauge" class="panel panel-default">
+            <li gridster-item="item" ng-repeat="item in googleGauge" class="panel panel-default" id="gaugePanel">
                 <div class="panel-heading rebranded-header rebranded-text">
                     Google Gauge
                 </div>
                 <div class="panel-body">
                     <div ng-controller="googleGauge">
-                        <div google-chart chart="myChartObject" style="height:130px; width:100%;"></div>
+                        <div google-chart chart="myChartObject"></div>
                     </div>
-                </div>
-            </li>
-            <li gridster-item="item" ng-repeat="item in googleGaugeNoPanel">
-                <div ng-controller="googleGauge">
-                    <div google-chart chart="myChartObject" style="height:130px; width:100%;"></div>
                 </div>
             </li>
         </ul>

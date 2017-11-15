@@ -289,3 +289,7 @@ textarea {
         page-break-after: avoid;
     }
 }
+
+.gridster-item{
+    overflow: hidden;
+}

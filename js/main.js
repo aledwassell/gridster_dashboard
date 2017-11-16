@@ -4,7 +4,7 @@
         document.styleSheets[15].insertRule(`.rebranded-header { background: ${this.value} !important;}`, 0);
     });
 
-    angular.module('app', ['ngRoute', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget', 'ui.bootstrap'])
+    angular.module('app', ['ngRoute', 'ngResource', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget'])
         .service('service', function(){
             this.width;
             this.height;
@@ -103,6 +103,21 @@
             $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
             $scope.data = [300, 500, 100, 450];
         })
+        .controller('modalController', ['$scope', '$uibModal', function ($scope, $uibModal) {
+            $scope.open = function(size, parentSelector){
+                var uibModalInstance = $uibModal.open({
+                    animation: true,
+                    areaLabelledBy: 'modal-title',
+                    templateUrl: 'views/modals/settingsModal.html',
+                    controller: 'modalInstanceController',
+                    size: 'md',
+                    resolve: {
+
+                    }
+                })
+            }
+        }])
+
         .controller("googleGeoChart", function ($scope) {
 
             var chart1 = {};

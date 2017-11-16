@@ -7,13 +7,16 @@
     });
 
     angular.module('app', ['ngRoute', 'ngResource', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget'])
-        .service('service', '$http', function(){
+        .service('service', ['$http', '$rootScope', function($http, $rootScope){
 
-
+            // $http.get(apiUrl)
+            //     .then(function(response){
+            //         $scope.data = response.data;
+            //     });
 
             this.width;
             this.height;
-        })
+        }])
         .config(function ($routeProvider, dashboardProvider) {
             $routeProvider
                 .when("/", {

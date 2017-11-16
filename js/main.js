@@ -1,11 +1,16 @@
 (function () {
 
     document.getElementById('colourPick').addEventListener('change', function () {
-        document.styleSheets[15].insertRule(`.rebranded-header { background: ${this.value} !important;}`, 0);
+
+        // document.styleSheets[15].insertRule(`.rebranded-header { background: ${this.value} !important;}`, 0);
+        document.styleSheets[15].cssRules["0"].cssText = `.rebranded-header { background: ${this.value} !important;}`
     });
 
     angular.module('app', ['ngRoute', 'ngResource', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget'])
-        .service('service', function(){
+        .service('service', '$http', function(){
+
+
+
             this.width;
             this.height;
         })
@@ -103,19 +108,18 @@
             $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
             $scope.data = [300, 500, 100, 450];
         })
-        .controller('modalController', ['$scope', '$uibModal', function ($scope, $uibModal) {
-            $scope.open = function(size, parentSelector){
-                var uibModalInstance = $uibModal.open({
-                    animation: true,
-                    areaLabelledBy: 'modal-title',
-                    templateUrl: 'views/modals/settingsModal.html',
-                    controller: 'modalInstanceController',
-                    size: 'md',
-                    resolve: {
+        .controller('modalController', ['$scope', '$uibModal', '$uibModalInstance', 'service', function ($scope, $uibModal, $uibModalInstance, service) {
+            $scope.service = service;
 
-                    }
-                })
-            }
+            $scope.ok = function () {
+                $uibModalInstance.close();
+            };
+            $scope.cancel = function () {
+                $uibModalInstance.dismiss();
+            };
+
+
+
         }])
 
         .controller("googleGeoChart", function ($scope) {
@@ -146,9 +150,19 @@
 
             $scope.chart = chart1;
         })
-        .controller('dashboard', ['$scope', '$rootScope', 'service', function ($scope, $rootscope, service) {
-
+        .controller('dashboard', ['$scope', '$rootScope', '$uibModal', '$aside', 'service', function ($scope, $rootScope, $uibModal, $aside, service) {
             $scope.service = service;
+
+            $scope.openAside = function(){
+                var asideInstance = $aside.open({
+                    templateUrl: 'views/modals/settingsModal.html',
+                    controller: 'modalController',
+                    placement: 'left',
+                    size: 'sm'
+                });
+            };
+
+
             $scope.standardItems = [
                 {
                     sizeX: 3, sizeY: 4, row: 0, col: 10, callVolume: [

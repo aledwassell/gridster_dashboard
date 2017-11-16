@@ -293,3 +293,7 @@ textarea {
 .gridster-item{
     overflow: hidden;
 }
+
+.rebranded-header{
+    background-color: #96ccff !important;
+}

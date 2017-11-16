@@ -132,10 +132,13 @@
             $scope.chart = chart1;
         })
         .controller('dashboard', ['$scope', '$rootScope', 'service', function ($scope, $rootscope, service) {
+
             $scope.service = service;
             $scope.standardItems = [
                 {
-                    sizeX: 3, sizeY: 2, row: 0, col: 10, callVolume: [
+                    sizeX: 3, sizeY: 4, row: 0, col: 10, callVolume: [
+                        {number: 0845788927, calls: 237},
+                        {number: 0845898989, calls: 657},
                         {number: 0845788927, calls: 237},
                         {number: 0845898989, calls: 657}
                     ]

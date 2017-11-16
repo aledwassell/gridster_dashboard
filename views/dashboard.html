@@ -3,7 +3,7 @@
         <ul>
             <li gridster-item="item" ng-repeat="item in standardItems" class="panel panel-default">
                 <div class="panel-heading rebranded-header rebranded-text">Call Volume</div>
-                <div class="panel-body">
+                <div class="panel-body" id="callsVolume">
                     <table class="table">
                         <thead>
                             <tr>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="panel-body">
                     <div ng-controller="googleGauge">
-                        <div google-chart chart="myChartObject"></div>
+                        <div google-chart chart="myChartObject" class="center-block canvas"></div>
                     </div>
                 </div>
             </li>

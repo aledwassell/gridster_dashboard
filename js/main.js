@@ -27,10 +27,6 @@
         }])
         .config(function ($routeProvider, dashboardProvider) {
             $routeProvider
-                .when("/", {
-                    templateUrl: "views/home.html",
-                    controller: "home"
-                })
                 .when("/dashboard", {
                     templateUrl: "views/dashboard.html",
                     controller: "dashboard"
@@ -51,9 +47,6 @@
                         }]
                     }]
                 });
-        })
-        .controller("home", function ($scope) {
-            $scope.name = 'Aled Wassell';
         })
         .controller("LineCtrl", function ($scope) {
 
@@ -161,6 +154,23 @@
         .controller('dashboard', ['$scope', '$rootScope', '$uibModal', '$aside', 'service', function ($scope, $rootScope, $uibModal, $aside, service) {
             $scope.service = service;
 
+            $scope.gaugeObject = {};
+            $scope.gaugeObject.type = "Gauge";
+            $scope.gaugeObject.options = {
+                width: 100,
+                height: 100,
+                redFrom: 90,
+                redTo: 100,
+                yellowFrom: 75,
+                yellowTo: 90,
+                minorTicks: 5
+            };
+
+            $scope.gaugeObject.data = [
+                ['Label', 'Value'],
+                ['Tempreture', $scope.service.temp]
+            ];
+
             $scope.openAside = function(){
                 var asideInstance = $aside.open({
                     templateUrl: 'views/modals/settingsModal.html',
@@ -242,43 +252,6 @@
                 }
             };
         }])
-        .controller("googleGauge", ['$scope', '$rootScope', 'service', function ($scope, $rootScope, service) {
-
-            $scope.service = service;
-            $scope.$watch('service.temp', function(){
-                $scope.draw()
-            });
-            $scope.$watch('service.width', function(){
-                $scope.draw()
-            });
-
-            $scope.person = {
-                name: 'Aled',
-                age: 28,
-            }
-
-            $scope.draw = function(newValue){
-                $scope.myChartObject = {};
-                $scope.myChartObject.type = "Gauge";
-                $scope.myChartObject.options = {
-                    width: $scope.service.height,
-                    height: $scope.service.height,
-                    redFrom: 90,
-                    redTo: 100,
-                    yellowFrom: 75,
-                    yellowTo: 90,
-                    minorTicks: 5
-                };
-
-                $scope.myChartObject.data = [
-                    ['Label', 'Value'],
-                    ['Tempreture', $scope.service.temp],
-                    ['Humidity', $scope.service.humidity]
-                ];
-            }
-
-
-        }])
         .controller("dashboard_framework", function ($scope) {
         })
         .controller('sb-admin', function ($scope) {
@@ -287,14 +260,13 @@
         .controller('settingsController', ['$scope', '$uibModal', function($scope, $uibModal){
 
         }])
-        .directive('weatherDirective', function(){
+        .directive('gaugeDirective', function(){
             return{
-                restrict: 'AE',
-                templateUrl: 'views/directives/weather.html',
-                replace: true,
+                restrict: 'A',
                 scope: {
-                    personObject: "="
-                }
+                    options: '=gauge'
+                },
+                templateUrl: 'views/directives/weather.html'
             }
         })
 

@@ -53,15 +53,8 @@
                     </div>
                 </div>
             </li>
-            <li gridster-item="item" ng-repeat="item in googleGauge" class="panel panel-default" id="gaugePanel">
-                <div class="panel-heading rebranded-header rebranded-text">
-                    Google Gauge
-                </div>
-                <div class="panel-body">
-                    <div ng-controller="googleGauge">
-                        <div google-chart chart="myChartObject" class="center-block canvas"></div>
-                    </div>
-                </div>
+            <li gridster-item="item" class="panel panel-default" id="gaugePanel">
+                <weather-directive person-object="person"></weather-directive>
             </li>
         </ul>
     </div>

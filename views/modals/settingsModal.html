@@ -1,9 +1,33 @@
-<div class="container">
+<div class="moda-dialog">
     <div class="row">
         <div class="col-md-12">
-            <h2>I am your modal</h2>
-            <button class="btn btn-success" ng-click="ok()">OK</button>
-            <button class="btn btn-danger" ng-click="cancel()">CANCEL</button>
+            <div class="panel panel-default">
+                <div class="panel-heading rebranded-header">
+                    <h4>Settings</h4>
+                </div>
+                <div class="panel-body">
+                    <form class="form">
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select class="form-control" id="country" ng-model="service.city">
+                                <option value="london" selected="true">London</option>
+                                <option value="birmingham">Birmingham</option>
+                                <option value="tokyo">Tokyo</option>
+                                <option value="taipei">Taipei</option>
+                                <option value="perth">Perth</option>
+                                <option value="moscow">Moscow</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="panel-footer rebranded-header">
+                    <button class="btn btn-success" ng-click="ok()">OK</button>
+                    <button class="btn btn-danger" ng-click="cancel()">CANCEL</button>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>

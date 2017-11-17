@@ -1,5 +1,4 @@
 (function () {
-
     document.getElementById('colourPick').addEventListener('change', function () {
 
         // document.styleSheets[15].insertRule(`.rebranded-header { background: ${this.value} !important;}`, 0);
@@ -8,11 +7,20 @@
 
     angular.module('app', ['ngRoute', 'ngResource', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget'])
         .service('service', ['$http', '$rootScope', function($http, $rootScope){
-
-            // $http.get(apiUrl)
-            //     .then(function(response){
-            //         $scope.data = response.data;
-            //     });
+            var that = this;
+            this.city = 'London';
+            that.getWeatherData = function(){
+                console.log('data got')
+                var apiKey = 'apikey=6bd81b03a64f7ae2cb9240d3271279aa';
+                var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&${apiKey}&units=metric`;
+                $http.get(apiUrl)
+                    .then(function(response){
+                        var data = response.data;
+                        that.temp = data.main.temp;
+                        that.humidity = data.main.humidity;
+                });
+            }
+            that.getWeatherData();
 
             this.width;
             this.height;
@@ -30,10 +38,6 @@
                 .when("/dash_framework", {
                     templateUrl: "views/dashboard_framework.html",
                     controller: "dashboard_framework"
-                })
-                .when("/", {
-                    templateUrl: "bower_components/sb-admin/app/index.html",
-                    controller: "sb-admin"
                 });
             dashboardProvider
                 .structure('6-6', {
@@ -114,14 +118,15 @@
         .controller('modalController', ['$scope', '$uibModal', '$uibModalInstance', 'service', function ($scope, $uibModal, $uibModalInstance, service) {
             $scope.service = service;
 
+            $scope.service.city;
+
             $scope.ok = function () {
                 $uibModalInstance.close();
+                $scope.service.getWeatherData()
             };
             $scope.cancel = function () {
                 $uibModalInstance.dismiss();
             };
-
-
 
         }])
 
@@ -214,7 +219,6 @@
                     start: function (event, $element, widget) {
                     }, // optional callback fired when resize is started,
                     resize: function (event, $element, widget) {
-                        console.log(event, $element, widget)
                         if(widget) {
                             $scope.service.width = document.getElementById('gaugePanel').offsetWidth - 45;
                             $scope.service.height = document.getElementById('gaugePanel').offsetHeight - 45;
@@ -241,12 +245,23 @@
         .controller("googleGauge", ['$scope', '$rootScope', 'service', function ($scope, $rootScope, service) {
 
             $scope.service = service;
+            $scope.$watch('service.temp', function(){
+                $scope.draw()
+            });
+            $scope.$watch('service.width', function(){
+                $scope.draw()
+            });
 
-            $scope.$watch('service.width', function(newValue){
+            $scope.person = {
+                name: 'Aled',
+                age: 28,
+            }
+
+            $scope.draw = function(newValue){
                 $scope.myChartObject = {};
                 $scope.myChartObject.type = "Gauge";
                 $scope.myChartObject.options = {
-                    width: newValue,
+                    width: $scope.service.height,
                     height: $scope.service.height,
                     redFrom: 90,
                     redTo: 100,
@@ -257,9 +272,11 @@
 
                 $scope.myChartObject.data = [
                     ['Label', 'Value'],
-                    ['Queues', 30]
+                    ['Tempreture', $scope.service.temp],
+                    ['Humidity', $scope.service.humidity]
                 ];
-            });
+            }
+
 
         }])
         .controller("dashboard_framework", function ($scope) {
@@ -269,7 +286,25 @@
         })
         .controller('settingsController', ['$scope', '$uibModal', function($scope, $uibModal){
 
-        }]);
+        }])
+        .directive('weatherDirective', function(){
+            return{
+                restrict: 'AE',
+                templateUrl: 'views/directives/weather.html',
+                replace: true,
+                scope: {
+                    personObject: "="
+                }
+            }
+        })
 
+
+
+
+
+
+        .run(['service', function (service) {
+            service.getWeatherData();
+        }]);
 
 })();

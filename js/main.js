@@ -154,6 +154,8 @@
         .controller('dashboard', ['$scope', '$rootScope', '$uibModal', '$aside', 'service', function ($scope, $rootScope, $uibModal, $aside, service) {
             $scope.service = service;
 
+            $scope.test = 'My test';
+
             $scope.gaugeObject = {};
             $scope.gaugeObject.type = "Gauge";
             $scope.gaugeObject.options = {
@@ -261,13 +263,12 @@
 
         }])
         .directive('gaugeDirective', function(){
-            return{
-                restrict: 'A',
+            return {
+                templateUrl: 'views/directives/weather.html',
                 scope: {
-                    options: '=gauge'
-                },
-                templateUrl: 'views/directives/weather.html'
-            }
+                    test: '@'
+                }
+            };
         })
 
 

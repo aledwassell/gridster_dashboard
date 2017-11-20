@@ -37,6 +37,9 @@
                 })
                 .when("/layout", {
                     templateUrl: 'views/layout.html'
+                })
+                .when("/layout02", {
+                    templateUrl: 'views/layout02.html'
                 });
             dashboardProvider
                 .structure('6-6', {
@@ -404,6 +407,11 @@
                 ['Label', 'Value'],
                 ['National', 30]
             ];
+        })
+        .controller("DoughnutCtrl", function ($scope) {
+            $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+            $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+            $scope.data = [300, 500, 100];
         })
         .directive('gaugeDirective', function(){
             return {

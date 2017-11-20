@@ -34,6 +34,9 @@
                 .when("/dash_framework", {
                     templateUrl: "views/dashboard_framework.html",
                     controller: "dashboard_framework"
+                })
+                .when("/layout", {
+                    templateUrl: 'views/layout.html'
                 });
             dashboardProvider
                 .structure('6-6', {

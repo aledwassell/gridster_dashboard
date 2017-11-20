@@ -1,29 +1,87 @@
 <div ng-controller="dashboard">
     <div gridster="gridsterOpts">
         <ul>
-            <li gridster-item="item" ng-repeat="item in standardItems" class="panel panel-default">
-                <div class="panel-heading rebranded-header rebranded-text">Call Volume</div>
+
+            <li gridster-item="item" ng-repeat="item in calls" class="panel panel-primary">
+                <div class="panel-heading">
+                    Total calls
+                </div>
+                <div class="panel-body">
+                    <div class="pull-left">
+                        <h2>
+                            <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
+                        </h2>
+                    </div>
+
+                    <div class="pull-right text-center">
+                        <h2>Calls</h2>
+                        <h1>25</h1>
+                    </div>
+
+                </div>
+            </li>
+
+            <li gridster-item="item" ng-repeat="item in queues" class="panel panel-success">
+                <div class="panel-heading">
+                    Calls in queue
+                </div>
+                <div class="panel-body">
+                    <div class="pull-left">
+                        <h2>
+                            <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                        </h2>
+                    </div>
+
+                    <div class="pull-right text-center">
+                        <h2>Queue</h2>
+                        <h1>4</h1>
+                    </div>
+
+                </div>
+            </li>
+
+            <li gridster-item="item" ng-repeat="item in minutes" class="panel panel-info">
+                <div class="panel-heading">
+                    Total minutes
+                </div>
+                <div class="panel-body">
+                    <div class="pull-left">
+                        <h2>
+                            <i class="fa fa-clock-o fa-3x" aria-hidden="true"></i>
+                        </h2>
+                    </div>
+
+                    <div class="pull-right text-center">
+                        <h2>Minutes</h2>
+                        <h1>13,567</h1>
+                    </div>
+
+                </div>
+            </li>
+
+            <li gridster-item="item" ng-repeat="item in standardItems" class="panel panel-info">
+                <div class="panel-heading">Call Volume</div>
                 <div class="panel-body" id="callsVolume">
                     <table class="table">
                         <thead>
-                            <tr>
-                                <th>
-                                    Number
-                                </th>
-                                <th>
-                                    Calls
-                                </th>
-                            </tr>
+                        <tr>
+                            <th>
+                                Number
+                            </th>
+                            <th>
+                                Calls
+                            </th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="calls in item.callVolume">
-                                <td>
-                                    {{calls.number}}
-                                </td>
-                                <td>
-                                    {{calls.calls}}
-                                </td>
-                            </tr>
+                        <tr ng-repeat="calls in item.callVolume">
+                            <td>
+                                {{calls.number}}
+                            </td>
+                            <td>
+                                {{calls.calls}}
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                     <h2>
@@ -31,8 +89,8 @@
                     </h2>
                 </div>
             </li>
-            <li gridster-item="item" ng-repeat="item in lineChart" class="panel panel-default">
-                <div class="panel-heading rebranded-header rebranded-text">Line Chart</div>
+            <li gridster-item="item" ng-repeat="item in lineChart" class="panel panel-primary">
+                <div class="panel-heading">Line Chart</div>
                 <div class="panel-body">
                     <div ng-controller="LineCtrl">
                         <canvas id="line" class="chart chart-line" chart-data="data"
@@ -42,8 +100,8 @@
                     </div>
                 </div>
             </li>
-            <li gridster-item="item" ng-repeat="item in barChart" class="panel panel-default">
-                <div class="panel-heading rebranded-header rebranded-text">Line Chart</div>
+            <li gridster-item="item" ng-repeat="item in barChart" class="panel panel-primary">
+                <div class="panel-heading">Line Chart</div>
                 <div class="panel-body">
                     <div ng-controller="MixedChartCtrl">
                         <canvas id="line" class="chart chart-line" chart-data="data"
@@ -53,7 +111,7 @@
                     </div>
                 </div>
             </li>
-            <li gridster-item="item" class="panel panel-default" id="gaugePanel">
+            <li gridster-item="item" ng-repeat="item in googleGauge" class="panel panel-success" id="gaugePanel">
                 <gauge-directive test="{{test}}"></gauge-directive>
             </li>
         </ul>

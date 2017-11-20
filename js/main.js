@@ -106,6 +106,54 @@
                     }
                 ];
             })
+        .controller("weeklyChartCtrl",
+            function ($scope) {
+                $scope.colors = ['#4286f4', '#4286f4', '#4286f4'];
+
+                $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                $scope.data = [
+                    [65, 59, 80, 81, 56, 55, 40],
+                    [54, 23, 43, 56, 87, 26, 87]
+                ];
+                $scope.datasetOverride = [
+                    {
+                        label: "Bar chart",
+                        borderWidth: 2,
+                        type: 'bar'
+                    },
+                    {
+                        label: "Line chart",
+                        borderWidth: 3,
+                        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                        hoverBorderColor: "rgba(255,99,132,1)",
+                        type: 'line'
+                    }
+                ];
+            })
+        .controller("monthlyChartCtrl",
+            function ($scope) {
+                $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+
+                $scope.labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                $scope.data = [
+                    [65, 59, 80, 81, 56, 55, 40, 32, 45, 24, 65, 64],
+                    [65, 59, 80, 81, 56, 55, 40, 32, 45, 24, 65, 64]
+                ];
+                $scope.datasetOverride = [
+                    {
+                        label: "Bar chart",
+                        borderWidth: 1,
+                        type: 'bar'
+                    },
+                    {
+                        label: "Line chart",
+                        borderWidth: 3,
+                        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                        hoverBorderColor: "rgba(255,99,132,1)",
+                        type: 'line'
+                    }
+                ];
+            })
 
         .controller("DoughnutCtrl", function ($scope) {
             $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
@@ -188,22 +236,54 @@
 
             $scope.standardItems = [
                 {
-                    sizeX: 3, sizeY: 4, row: 0, col: 10, callVolume: [
+                    sizeX: 3, sizeY: 8, row: 3, col: 12, callVolume: [
                         {number: 0845788927, calls: 237},
                         {number: 0845898989, calls: 657},
                         {number: 0845788927, calls: 237},
-                        {number: 0845898989, calls: 657}
+                        {number: 0845898989, calls: 657},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845788927, calls: 237},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845788927, calls: 237},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845788927, calls: 237},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845788927, calls: 237},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845788927, calls: 237},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845788927, calls: 237},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845788927, calls: 237},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845788927, calls: 237},
+                        {number: 0845898989, calls: 657},
+                        {number: 0845898989, calls: 657},
                     ]
                 }
             ];
+            $scope.calls = [
+                {sizeX: 4, sizeY: 3, row: 0, col: 0}
+            ];
+            $scope.queues = [
+                {sizeX: 4, sizeY: 3, row: 0, col: 4}
+            ];
+            $scope.minuets = [
+                {sizeX: 4, sizeY: 3, row: 0, col: 8}
+            ];
             $scope.lineChart = [
-                {sizeX: 7, sizeY: 5, row: 0, col: 2}
+                {sizeX: 7, sizeY: 3, row: 10, col: 2}
             ];
             $scope.barChart = [
-                {sizeX: 7, sizeY: 5, row: 2, col: 2}
+                {sizeX: 7, sizeY: 5, row: 3, col: 2}
             ];
             $scope.googleGauge = [
-                {sizeX: 2, sizeY: 3, row: 0, col: 0}
+                {sizeX: 2, sizeY: 3, row: 3, col: 0},
+                {sizeX: 2, sizeY: 3, row: 6, col: 0},
+                {sizeX: 2, sizeY: 3, row: 9, col: 0}
             ];
             $scope.gridsterOpts = {
                 columns: 12, // the width of the grid, in columns
@@ -265,6 +345,66 @@
         .controller('settingsController', ['$scope', '$uibModal', function($scope, $uibModal){
 
         }])
+        .controller("GaugeChartCtrl01", function($scope) {
+
+            $scope.myChartObject = {};
+            $scope.myChartObject.type = "Gauge";
+
+            $scope.myChartObject.options = {
+                width: 400,
+                height: 120,
+                redFrom: 90,
+                redTo: 100,
+                yellowFrom: 75,
+                yellowTo: 90,
+                minorTicks: 5
+            };
+
+            $scope.myChartObject.data = [
+                ['Label', 'Value'],
+                ['Inbound', 85]
+            ];
+        })
+        .controller("GaugeChartCtrl02", function($scope) {
+
+            $scope.myChartObject = {};
+            $scope.myChartObject.type = "Gauge";
+
+            $scope.myChartObject.options = {
+                width: 400,
+                height: 120,
+                redFrom: 90,
+                redTo: 100,
+                yellowFrom: 75,
+                yellowTo: 90,
+                minorTicks: 5
+            };
+
+            $scope.myChartObject.data = [
+                ['Label', 'Value'],
+                ['Outbound', 23]
+            ];
+        })
+        .controller("GaugeChartCtrl03", function($scope) {
+
+            $scope.myChartObject = {};
+            $scope.myChartObject.type = "Gauge";
+
+            $scope.myChartObject.options = {
+                width: 400,
+                height: 120,
+                redFrom: 90,
+                redTo: 100,
+                yellowFrom: 75,
+                yellowTo: 90,
+                minorTicks: 5
+            };
+
+            $scope.myChartObject.data = [
+                ['Label', 'Value'],
+                ['National', 30]
+            ];
+        })
         .directive('gaugeDirective', function(){
             return {
                 templateUrl: 'views/directives/weather.html',

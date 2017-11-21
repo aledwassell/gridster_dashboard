@@ -138,8 +138,7 @@
                 $scope.labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                 $scope.series = ['Series A', 'Series B'];
                 $scope.data = [
-                    [65, 59, 80, 81, 56, 55, 40],
-                    [28, 48, 40, 19, 86, 27, 90]
+                    [65, 59, 80, 81, 56, 55, 40, 28, 48, 40, 19, 65]
                 ];
                 $scope.onClick = function (points, evt) {
                     console.log(points, evt);
@@ -251,22 +250,7 @@
                         {number: 0845898989, calls: 657},
                         {number: 0845788927, calls: 237},
                         {number: 0845898989, calls: 657},
-                        {number: 0845898989, calls: 657},
-                        {number: 0845788927, calls: 237},
-                        {number: 0845898989, calls: 657},
-                        {number: 0845788927, calls: 237},
-                        {number: 0845898989, calls: 657},
-                        {number: 0845898989, calls: 657},
-                        {number: 0845788927, calls: 237},
-                        {number: 0845898989, calls: 657},
-                        {number: 0845788927, calls: 237},
-                        {number: 0845898989, calls: 657},
-                        {number: 0845898989, calls: 657},
-                        {number: 0845788927, calls: 237},
-                        {number: 0845898989, calls: 657},
-                        {number: 0845788927, calls: 237},
-                        {number: 0845898989, calls: 657},
-                        {number: 0845898989, calls: 657},
+                        {number: 0845898989, calls: 657}
                     ]
                 }
             ];
@@ -382,7 +366,7 @@
                 redTo: 100,
                 yellowFrom: 75,
                 yellowTo: 90,
-                minorTicks: 5
+                minorTicks: 0
             };
 
             $scope.myChartObject.data = [
@@ -486,11 +470,14 @@
             $scope.chart01.options = {
                 width: 150,
                 height: 150,
+                greenFrom: 0,
+                greenTo: 90,
                 redFrom: 90,
                 redTo: 100,
                 yellowFrom: 75,
                 yellowTo: 90,
-                minorTicks: 5
+                minorTicks: 0,
+                ticks: 0
             };
             $scope.chart01.data = [
                 ['Label', 'Value'],
@@ -501,11 +488,13 @@
             $scope.chart02.options = {
                 width: 150,
                 height: 150,
+                greenFrom: 0,
+                greenTo: 90,
                 redFrom: 90,
                 redTo: 100,
                 yellowFrom: 75,
                 yellowTo: 90,
-                minorTicks: 5
+                minorTicks: 0
             };
             $scope.chart02.data = [
                 ['Label', 'Value'],
@@ -516,11 +505,13 @@
             $scope.chart03.options = {
                 width: 150,
                 height: 150,
+                greenFrom: 0,
+                greenTo: 90,
                 redFrom: 90,
                 redTo: 100,
                 yellowFrom: 75,
                 yellowTo: 90,
-                minorTicks: 5
+                minorTicks: 0
             };
             $scope.chart03.data = [
                 ['Label', 'Value'],

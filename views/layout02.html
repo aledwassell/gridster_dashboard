@@ -1,5 +1,78 @@
-<div class="ba b--blue bw1 br1  fl w-30 pa3" ng-controller="DoughnutCtrl">
-    <canvas id="doughnut" class="chart chart-doughnut"
-            chart-data="data" chart-labels="labels" chart-colors="colors">
+<div class="fl w-100">
+    <h2 class="tc">Calls</h2>
+    <div class="bw1 br1  fl w-third pa3 grow" ng-controller="DoughnutCtrl">
+        <canvas id="doughnut" class="chart chart-doughnut mb2"
+                chart-data="doughnutData.calls.data" chart-labels="doughnutData.calls.labels" chart-colors="doughnutData.calls.colors">
+        </canvas>
+        <div class="fl w-50 pa3 tc br bw1 b--black-30">
+            <h4>{{doughnutData.calls.labels[1]}}</h4>
+            <h1>{{doughnutData.calls.data[1]}}</h1>
+        </div>
+        <div class="fl w-50 pa3 tc">
+            <h4>{{doughnutData.calls.labels[0]}}</h4>
+            <h1>{{doughnutData.calls.data[0]}}</h1>
+        </div>
+    </div>
+    <div class="bw1 br1  fl w-third pa3 grow" ng-controller="DoughnutCtrl">
+        <canvas id="doughnut" class="chart chart-doughnut mb2"
+                chart-data="doughnutData.queues.data" chart-labels="doughnutData.queues.labels" chart-colors="doughnutData.queues.colors">
+        </canvas>
+        <div class="fl w-50 pa3 tc br bw1 b--black-30">
+            <h4>{{doughnutData.queues.labels[1]}}</h4>
+            <h1>{{doughnutData.queues.data[1]}}</h1>
+        </div>
+        <div class="fl w-50 pa3 tc">
+            <h4>{{doughnutData.queues.labels[0]}}</h4>
+            <h1>{{doughnutData.queues.data[0]}}</h1>
+        </div>
+    </div>
+    <div class="bw1 br1  fl w-third pa3 grow" ng-controller="DoughnutCtrl">
+        <canvas id="doughnut" class="chart chart-doughnut mb2"
+                chart-data="doughnutData.IVRs.data" chart-labels="doughnutData.IVRs.labels" chart-colors="doughnutData.IVRs.colors">
+        </canvas>
+        <div class="fl w-50 pa3 tc br bw1 b--black-30">
+            <h4>{{doughnutData.IVRs.labels[1]}}</h4>
+            <h1>{{doughnutData.IVRs.data[1]}}</h1>
+        </div>
+        <div class="fl w-50 pa3 tc">
+            <h4>{{doughnutData.IVRs.labels[0]}}</h4>
+            <h1>{{doughnutData.IVRs.data[0]}}</h1>
+        </div>
+    </div>
+</div>
+
+<div class="fl w-100 pa3"></div>
+<div class="fr w-two-thirds grow" ng-controller="layout02Chart">
+    <h2 class="tc">Weekly reporting</h2>
+    <canvas id="base" class="chart-bar"
+            chart-data="data" chart-labels="labels" chart-colors="colors"
+            chart-dataset-override="datasetOverride" >
     </canvas>
 </div>
+<div class="w-third" ng-controller="layout02Gauge">
+    <div class="bw1 br1 fl w-100 grow mb3">
+        <div google-chart chart="chart01" class="w-50 fl br bw1 b--black-30"></div>
+        <div class="w-50 fr tc pt4">
+            <h4>{{chart01.data[1][0]}}</h4>
+            <h1>{{chart01.data[1][1]}}</h1>
+        </div>
+    </div>
+    <div class="bw1 br1 fl w-100 grow mb3">
+        <div google-chart chart="chart02" class="w-50 fl br bw1 b--black-30"></div>
+        <div class="w-50 fr tc pt4">
+            <h4>{{chart02.data[1][0]}}</h4>
+            <h1>{{chart02.data[1][1]}}</h1>
+        </div>
+    </div>
+    <div class="bw1 br1 fl w-100 grow mb3">
+        <div google-chart chart="chart03" class="w-50 fl br bw1 b--black-30"></div>
+        <div class="w-50 fr tc pt4">
+            <h4>{{chart03.data[1][0]}}</h4>
+            <h1>{{chart03.data[1][1]}}</h1>
+        </div>
+
+    </div>
+</div>
+
+
+

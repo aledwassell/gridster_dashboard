@@ -111,21 +111,21 @@
             })
         .controller("weeklyChartCtrl",
             function ($scope) {
-                $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+                $scope.colors = ['#4062BB', '#B02E0C', '#4062BB'];
 
                 $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
                 $scope.data = [
-                    [65, -59, 80, 81, 56, 55, 40],
+                    [65, 59, 80, 81, 56, 55, 40],
                     [28, 48, 40, 19, 86, 27, 90]
                 ];
                 $scope.datasetOverride = [
                     {
-                        label: "Bar chart",
+                        label: "Calls",
                         borderWidth: 1,
                         type: 'bar'
                     },
                     {
-                        label: "Line chart",
+                        label: "Call abandoned",
                         borderWidth: 3,
                         hoverBackgroundColor: "rgba(255,99,132,0.4)",
                         hoverBorderColor: "rgba(255,99,132,1)",
@@ -135,33 +135,35 @@
             })
         .controller("monthlyChartCtrl",
             function ($scope) {
-                $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
-
-                $scope.labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+                $scope.series = ['Series A', 'Series B'];
                 $scope.data = [
-                    [65, 59, 80, 81, 56, 55, 40, 32, 45, 24, 65, 64],
-                    [65, 59, 80, 81, 56, 55, 40, 32, 45, 24, 65, 64]
+                    [65, 59, 80, 81, 56, 55, 40],
+                    [28, 48, 40, 19, 86, 27, 90]
                 ];
-                $scope.datasetOverride = [
-                    {
-                        label: "Bar chart",
-                        borderWidth: 1,
-                        type: 'bar'
-                    },
-                    {
-                        label: "Line chart",
-                        borderWidth: 3,
-                        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-                        hoverBorderColor: "rgba(255,99,132,1)",
-                        type: 'line'
+                $scope.onClick = function (points, evt) {
+                    console.log(points, evt);
+                };
+                $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
+                $scope.options = {
+                    scales: {
+                        yAxes: [
+                            {
+                                id: 'y-axis-1',
+                                type: 'linear',
+                                display: true,
+                                position: 'left'
+                            },
+                            {
+                                id: 'y-axis-2',
+                                type: 'linear',
+                                display: true,
+                                position: 'right'
+                            }
+                        ]
                     }
-                ];
+                };
             })
-
-        .controller("DoughnutCtrl", function ($scope) {
-            $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-            $scope.data = [300, 500, 100, 450];
-        })
         .controller('modalController', ['$scope', '$uibModal', '$uibModalInstance', 'service', function ($scope, $uibModal, $uibModalInstance, service) {
             $scope.service = service;
 
@@ -408,24 +410,104 @@
                 ['National', 30]
             ];
         })
+
+
+        //Layout 02 controllers
         .controller("DoughnutCtrl", function ($scope) {
-            $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
-            $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-            $scope.data = [300, 500, 100];
-        })
-        .directive('gaugeDirective', function(){
-            return {
-                templateUrl: 'views/directives/weather.html',
-                scope: {
-                    test: '@'
+            $scope.doughnutData = {
+                calls: {
+                    colors:['#81cd34', '#ff000f', '#ff00ee'],
+                    labels:["Successful", "Abandoned"],
+                    data:[564, 112]
+                },
+                queues: {
+                    colors:['#cd801a', '#00fff8', '#58fdff'],
+                    labels:["Queues", "Successful"],
+                    data:[25, 670]
+                },
+                IVRs: {
+                    colors:['#00cd08', '#ff6384', '#0004ff'],
+                    labels:["West Midlands", "Wales"],
+                    data:[12, 14]
                 }
-            };
+            }
+
         })
+        .controller("layout02Chart",
+            function ($scope) {
+                $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
 
+                $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                $scope.data = [
+                    [65, -59, 80, 81, -56, 55, -40],
+                    [28, 48, -40, 19, 86, 27, 90]
+                ];
+                $scope.datasetOverride = [
+                    {
+                        label: "Bar chart",
+                        borderWidth: 1,
+                        type: 'bar'
+                    },
+                    {
+                        label: "Line chart",
+                        borderWidth: 3,
+                        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                        hoverBorderColor: "rgba(255,99,132,1)",
+                        type: 'line'
+                    }
+                ];
+            })
+        .controller("layout02Gauge", function($scope) {
 
+            $scope.chart01 = {};
+            $scope.chart02 = {};
+            $scope.chart03 = {};
 
+            $scope.chart01.type = "Gauge";
+            $scope.chart01.options = {
+                width: 150,
+                height: 150,
+                redFrom: 90,
+                redTo: 100,
+                yellowFrom: 75,
+                yellowTo: 90,
+                minorTicks: 5
+            };
+            $scope.chart01.data = [
+                ['Label', 'Value'],
+                ['Outbound', 65]
+            ];
 
+            $scope.chart02.type = "Gauge";
+            $scope.chart02.options = {
+                width: 150,
+                height: 150,
+                redFrom: 90,
+                redTo: 100,
+                yellowFrom: 75,
+                yellowTo: 90,
+                minorTicks: 5
+            };
+            $scope.chart02.data = [
+                ['Label', 'Value'],
+                ['Inbound', 30]
+            ];
 
+            $scope.chart03.type = "Gauge";
+            $scope.chart03.options = {
+                width: 150,
+                height: 150,
+                redFrom: 90,
+                redTo: 100,
+                yellowFrom: 75,
+                yellowTo: 90,
+                minorTicks: 5
+            };
+            $scope.chart03.data = [
+                ['Label', 'Value'],
+                ['Queues', 24]
+            ];
+        })
 
         .run(['service', function (service) {
             service.getWeatherData();

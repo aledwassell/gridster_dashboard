@@ -42,13 +42,33 @@
 </div>
 
 <div class="fl w-100 pa3"></div>
-<div class="fr w-two-thirds grow" ng-controller="layout02Chart">
-    <h2 class="tc">Weekly reporting</h2>
-    <canvas id="base" class="chart-bar"
-            chart-data="data" chart-labels="labels" chart-colors="colors"
-            chart-dataset-override="datasetOverride" >
-    </canvas>
+
+<div class="fr w-10" ng-controller="dashboard">
+    <h2 class="tc">Numbers</h2>
+    <div class="fr w-100 tc pt4" ng-repeat="number in standardItems[0].callVolume">
+        <h4>{{number.number}}</h4>
+        <h1>{{number.calls}}</h1>
+    </div>
 </div>
+
+<div class="fr w-50">
+    <div class="fl w-100 grow" ng-controller="layout02Chart">
+        <h2 class="tc">Weekly reporting</h2>
+        <canvas id="base" class="chart-bar"
+                chart-data="lineChart01.data" chart-labels="lineChart01.labels" chart-colors="lineChart01.colors"
+                chart-dataset-override="lineChart01.datasetOverride" >
+        </canvas>
+    </div>
+    <div class="fl w-100 grow" ng-controller="layout02Chart">
+        <h2 class="tc">Monthly reporting</h2>
+        <canvas id="base" class="chart-line"
+                chart-data="lineChart02.data" chart-labels="lineChart02.labels" chart-colors="lineChart02.colors"
+                chart-dataset-override="lineChart02.datasetOverride" >
+        </canvas>
+    </div>
+</div>
+
+
 <div class="w-third" ng-controller="layout02Gauge">
     <div class="bw1 br1 fl w-100 grow mb3">
         <div google-chart chart="chart01" class="w-50 fl br bw1 b--black-30"></div>

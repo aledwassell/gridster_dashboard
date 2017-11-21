@@ -135,7 +135,7 @@
             })
         .controller("monthlyChartCtrl",
             function ($scope) {
-                $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+                $scope.labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                 $scope.series = ['Series A', 'Series B'];
                 $scope.data = [
                     [65, 59, 80, 81, 56, 55, 40],
@@ -435,19 +435,38 @@
         })
         .controller("layout02Chart",
             function ($scope) {
-                $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+                $scope.lineChart01 = {};
+                $scope.lineChart02 = {};
 
-                $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-                $scope.data = [
-                    [65, -59, 80, 81, -56, 55, -40],
-                    [28, 48, -40, 19, 86, 27, 90]
+                $scope.lineChart01.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+
+                $scope.lineChart01.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                $scope.lineChart01.data = [
+                    [65, 59, 80, 81, 56, 55, 40],
+                    [28, 48, 40, 19, 86, 27, 90]
                 ];
-                $scope.datasetOverride = [
+                $scope.lineChart01.datasetOverride = [
                     {
                         label: "Bar chart",
                         borderWidth: 1,
                         type: 'bar'
                     },
+                    {
+                        label: "Line chart",
+                        borderWidth: 3,
+                        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                        hoverBorderColor: "rgba(255,99,132,1)",
+                        type: 'line'
+                    }
+                ];
+
+                $scope.lineChart02.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+
+                $scope.lineChart02.labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                $scope.lineChart02.data = [
+                    [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40]
+                ];
+                $scope.lineChart02.datasetOverride = [
                     {
                         label: "Line chart",
                         borderWidth: 3,

@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 pull-right panel-group">
+        <div class="col-sm-3  col-lg-2 pull-right panel-group">
             <div class="panel">
                 <div class="panel-heading number-panel-heading">
                     <i class="fa fa-phone"></i>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="panel-body queue-panel-body text-center">
                     <canvas id="doughtnut" class="chart chart-doughnut"
-                    chart-data="doughnutData" chart-labels="doughnutLabels">
+                    chart-data="doughnutData" chart-labels="doughnutLabels" chart-colors="doughnutColors">
                     </canvas>
                     <div class="col-sm-6 text-left">
                         <h5>Queue:</h5>
@@ -120,9 +120,9 @@
                         <h5>Abandoned:</h5>
                     </div>
                     <div class="col-sm-6">
-                        <h5>{{doughnutData[0]}}</h5>
-                        <h5>27</h5>
-                        <h5>87</h5>
+                        <h5>{{doughnutData[1]}}</h5>
+                        <h5>{{doughnutData[2]}}</h5>
+                        <h5>{{doughnutData[3]}}</h5>
                     </div>
                 </div>
             </div>
@@ -132,9 +132,9 @@
                     Inbound technical queue
                 </div>
                 <div class="panel-body queue-panel-body text-center">
-                    <canvas id="doughtnut" class="chart chart-doughnut"
-                            chart-data="doughnutData" chart-labels="doughnutLabels">
-                    </canvas>
+                    <div class="col-sm-12">
+                        <div google-chart chart="gaugeChartObject" id="Google_Gauge"></div>
+                    </div>
                     <div class="col-sm-6 text-left">
                         <h5>Queue:</h5>
                         <h5>Callers:</h5>
@@ -142,11 +142,33 @@
                     </div>
                     <div class="col-sm-6">
                         <h5>{{doughnutData[1]}}</h5>
-                        <h5>14</h5>
-                        <h5>37</h5>
+                        <h5>{{doughnutData[2]}}</h5>
+                        <h5>{{doughnutData[3]}}</h5>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-lg-7 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <canvas id="base" class="chart chart-bar"
+                            chart-data="mixedChart.data" chart-labels="mixedChart.labels" chart-colors="mixedChart.colors"
+                            chart-dataset-override="mixedChart.datasetOverride" >
+                    </canvas>
+                </div>
+                <div class="panel-footer">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" autofocus ng-click="CDRreporting()">CDR Reporting</button>
+                        <button type="button" class="btn btn-default" ng-click="IVRreporting()">IVR Reporting</button>
+                        <button type="button" class="btn btn-default" ng-click="monthlyCalls()">Monthly Calls</button>
+                    </div>
+                    <div class="text-right form-inline">
+                        <i class="fa fa-area-chart"></i> Reporting
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

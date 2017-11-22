@@ -578,8 +578,126 @@
             };
 
             //doughnut gauge settings
-            $scope.doughnutLabels = ['', 'In Queue'];
-            $scope.doughnutData = [25, 75];
+            $scope.doughnutColors = ['#ffffff', '#81cd34', '#ff00ee', '#ff000f']
+            $scope.doughnutLabels = ['', 'Maximum', 'Queue', 'Callers', 'Abandoned'];
+            $scope.doughnutData = [25, 200, 75, 25, 8];
+
+            //mixed chart settings
+            $scope.mixedChart = {};
+            $scope.mixedChart.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+
+            $scope.mixedChart.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            $scope.mixedChart.data = [
+                [65, -59, 80, 81, -56, 55, -40],
+                [28, 48, -40, 19, 86, 27, 90]
+            ];
+            $scope.mixedChart.datasetOverride = [
+                {
+                    label: "Bar chart",
+                    borderWidth: 1,
+                    type: 'bar'
+                },
+                {
+                    label: "Line chart",
+                    borderWidth: 3,
+                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                    hoverBorderColor: "rgba(255,99,132,1)",
+                    type: 'line'
+                }
+            ];
+            $scope.CDRreporting = function(){
+                $scope.mixedChart = {};
+                $scope.mixedChart.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+
+                $scope.mixedChart.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                $scope.mixedChart.data = [
+                    [65, -59, 80, 81, -56, 55, -40],
+                    [28, 48, -40, 19, 86, 27, 90]
+                ];
+                $scope.mixedChart.datasetOverride = [
+                    {
+                        label: "Bar chart",
+                        borderWidth: 1,
+                        type: 'bar'
+                    },
+                    {
+                        label: "Line chart",
+                        borderWidth: 3,
+                        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                        hoverBorderColor: "rgba(255,99,132,1)",
+                        type: 'line'
+                    }
+                ];
+            }
+            $scope.IVRreporting = function(){
+                $scope.mixedChart = {};
+                $scope.mixedChart.colors = ['#cd6b1e', '#00cd08', '#00ffdb'];
+
+                $scope.mixedChart.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                $scope.mixedChart.data = [
+                    [65, 91, 80, 81, 37, 55, 24],
+                    [32, 34, 20, 19, 26, 27, 90]
+                ];
+                $scope.mixedChart.datasetOverride = [
+                    {
+                        label: "IVR Reporting",
+                        borderWidth: 1,
+                        type: 'bar'
+                    },
+                    {
+                        label: "Line chart",
+                        borderWidth: 3,
+                        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                        hoverBorderColor: "rgba(255,99,132,1)",
+                        type: 'line'
+                    }
+                ];
+            }
+            $scope.monthlyCalls = function(){
+                $scope.mixedChart = {};
+                $scope.mixedChart.colors = ['#cd00a1', '#0091cd', '#6dff00'];
+
+                $scope.mixedChart.labels = ["January", "February", "March", "April", "May", "June", "July", 'August', 'September', 'October', 'November', 'December'];
+                $scope.mixedChart.data = [
+                    [35, 59, 40, 81, 26, 55, 40, 48, 96, 14, 23, 47],
+                    [28, 48, 40, 19, 66, 27, 30, 35, 59, 40, 81, 26]
+                ];
+                $scope.mixedChart.datasetOverride = [
+                    {
+                        label: "IVR Reporting",
+                        borderWidth: 1,
+                        type: 'bar'
+                    },
+                    {
+                        label: "Line chart",
+                        borderWidth: 3,
+                        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                        hoverBorderColor: "rgba(255,99,132,1)",
+                        type: 'line'
+                    }
+                ];
+            }
+
+
+            //gauge chart object
+            $scope.gaugeChartObject = {};
+            $scope.gaugeChartObject.type = "Gauge";
+
+            $scope.gaugeChartObject.options = {
+                height: 200,
+                redColor: '#00fff7',
+                redFrom: 90,
+                redTo: 100,
+                yellowColor: '#0613e9',
+                yellowFrom: 75,
+                yellowTo: 90,
+                minorTicks: 0
+            };
+
+            $scope.gaugeChartObject.data = [
+                ['Label', 'Value'],
+                ['Memory', 80]
+            ];
 
         }])
 

@@ -1,0 +1,152 @@
+<div class="container-fluid" ng-controller="layout03">
+    <div class="row">
+        <div class="col-sm-12">
+            <canvas id="line" class="chart chart-line" chart-data="data"
+                    chart-labels="labels" chart-series="series" chart-options="options"
+                    chart-dataset-override="datasetOverride" chart-click="onClick" chart-colors="colors" style="height: 30vh; width: 100vw; padding-bottom: 25px">
+            </canvas>
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-default" id="first">
+                <div class="panel-body">
+                    <div class="col-xs-6">
+                        <span>Today</span>
+                        <h1 style="margin-top: 0">780</h1>
+                    </div>
+                    <div class="col-xs-6">
+                        <i class="fa fa-phone fa-flip-horizontal fa-5x pull-right card-icon"></i>
+                    </div>
+                </div>
+                <div class="panel-footer text-right" id="first-footer">
+                    <i class="fa fa-phone pull-left"></i>
+                    780
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-default" id="second">
+                <div class="panel-body">
+                    <div class="col-xs-6">
+                        <span>Week</span>
+                        <h1 style="margin-top: 0">1,240</h1>
+                    </div>
+                    <div class="col-xs-6">
+                        <i class="fa fa-calendar fa-5x pull-right card-icon"></i>
+                    </div>
+                </div>
+                <div class="panel-footer text-right" id="second-footer">
+                    <i class="fa fa-calendar pull-left"></i>
+                    1,240
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-default" id="third">
+                <div class="panel-body">
+                    <div class="col-xs-6">
+                        <span>Queue</span>
+                        <h1 style="margin-top: 0">48</h1>
+                    </div>
+                    <div class="col-xs-6">
+                        <i class="fa fa-user fa-5x pull-right card-icon"></i>
+                    </div>
+                </div>
+                <div class="panel-footer text-right" id="third-footer">
+                    <i class="fa fa-user pull-left"></i>
+                    48
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-default" id="fourth">
+                <div class="panel-body">
+                    <div class="col-xs-6">
+                        <pan>Minutes</pan>
+                        <h1 style="margin-top: 0">15,600</h1>
+                    </div>
+                    <div class="col-xs-6">
+                        <i class="fa fa-clock-o fa-5x pull-right card-icon"></i>
+                    </div>
+                </div>
+                <div class="panel-footer text-right" id="fourth-footer">
+                    <i class="fa fa-clock-o pull-left"></i>
+                    15,600
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 pull-right panel-group">
+            <div class="panel">
+                <div class="panel-heading number-panel-heading">
+                    <i class="fa fa-phone"></i>
+                    0800 123 456
+                </div>
+                <div class="panel-body number-panel-body text-center">
+                    <h1>249</h1>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading number-panel-heading">
+                    <i class="fa fa-phone"></i>
+                    0900 492 876
+                </div>
+                <div class="panel-body number-panel-body text-center">
+                    <h1>456</h1>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading number-panel-heading">
+                    <i class="fa fa-phone"></i>
+                    0800 987 321
+                </div>
+                <div class="panel-body number-panel-body text-center">
+                    <h1>75</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 pull-left panel-group">
+            <div class="panel">
+                <div class="panel-heading queue-panel-heading">
+                    <i class="fa fa-dashboard"></i>
+                    Inbound sales queue
+                </div>
+                <div class="panel-body queue-panel-body text-center">
+                    <canvas id="doughtnut" class="chart chart-doughnut"
+                    chart-data="doughnutData" chart-labels="doughnutLabels">
+                    </canvas>
+                    <div class="col-sm-6 text-left">
+                        <h5>Queue:</h5>
+                        <h5>Callers:</h5>
+                        <h5>Abandoned:</h5>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>{{doughnutData[0]}}</h5>
+                        <h5>27</h5>
+                        <h5>87</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading queue-panel-heading">
+                    <i class="fa fa-dashboard"></i>
+                    Inbound technical queue
+                </div>
+                <div class="panel-body queue-panel-body text-center">
+                    <canvas id="doughtnut" class="chart chart-doughnut"
+                            chart-data="doughnutData" chart-labels="doughnutLabels">
+                    </canvas>
+                    <div class="col-sm-6 text-left">
+                        <h5>Queue:</h5>
+                        <h5>Callers:</h5>
+                        <h5>Abandoned:</h5>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>{{doughnutData[1]}}</h5>
+                        <h5>14</h5>
+                        <h5>37</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

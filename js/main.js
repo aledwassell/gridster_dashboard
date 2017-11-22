@@ -40,6 +40,9 @@
                 })
                 .when("/layout02", {
                     templateUrl: 'views/layout02.html'
+                })
+                .when("/layout03", {
+                    templateUrl: 'views/layout03.html'
                 });
             dashboardProvider
                 .structure('6-6', {
@@ -518,6 +521,67 @@
                 ['Queues', 24]
             ];
         })
+        .controller('layout03', ['$scope', function ($scope) {
+            //Chart top
+            $scope.colors = ['#0004ff', '#ff000f', '#cd1b8a', '#58fdff']
+            $scope.labels = ["January", "February", "March", "April", "May", "June", "July", 'August', 'September', 'October', 'November', 'December'];
+            $scope.series = ['Inbound Calls', 'Outbound Calls'];
+            $scope.data = [
+                [35, 59, 40, 81, 26, 55, 40, 48, 96, 14, 23, 47],
+                [28, 48, 40, 19, 66, 27, 30, 35, 59, 40, 81, 26]
+
+            ];
+            $scope.onClick = function (points, evt) {
+                console.log(points, evt);
+            };
+            $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }];
+            $scope.options = {
+                responsive: true,
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }
+                },
+                elements: {
+                    line: {
+                        fill: false
+                    }
+                },
+                scales: {
+                    yAxes: [
+                        {
+                            id: 'y-axis-1',
+                            type: 'linear',
+                            display: false,
+                            position: 'left',
+                            gridLines: false
+                        }
+                    ],
+                    xAxes: [
+                        {
+                            gridLines: false
+                        }
+                    ]
+                },
+                plugins: {
+                    filler: {
+                        propagate: true
+                    }
+                }
+                // legend: {
+                //     display: true,
+                //     position: 'left'
+                // }
+            };
+
+            //doughnut gauge settings
+            $scope.doughnutLabels = ['', 'In Queue'];
+            $scope.doughnutData = [25, 75];
+
+        }])
 
         .run(['service', function (service) {
             service.getWeatherData();

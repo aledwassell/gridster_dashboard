@@ -297,3 +297,69 @@ textarea {
 .rebranded-header{
     background-color: #96ccff !important;
 }
+
+#first{
+    background-color: #1BC98E;
+    color: #fff;
+}
+#first-footer{
+    background-color: #1BC98E;
+    color: #fff;
+}
+
+#second{
+    background-color: #E64759;
+    color: #fff;
+}
+#second-footer{
+    background-color: #E64759;
+    color: #fff;
+}
+
+#third{
+    background-color: #9F86FF;
+    color: #fff;
+}
+#third-footer{
+    background-color: #9F86FF;
+    color: #fff;
+}
+
+#fourth{
+    background-color: #FFBF00;
+    color: #fff;
+}
+#fourth-footer{
+    background-color: #FFBF00;
+    color: #fff;
+}
+
+.number-panel-heading{
+    background-color: #1BC98E;
+    color: #fff;
+}
+
+.number-panel-body{
+    border-top: 1px solid #ddd;
+    background-color: #1BC98E;
+    color: #fff;
+}
+
+.queue-panel-heading{
+    background-color: #9F86FF;
+    color: #fff;
+}
+
+.queue-panel-body{
+    border-top: 1px solid #ddd;
+    background-color: #9F86FF;
+    color: #fff;
+}
+
+/*.card-icon{*/
+    /*position: absolute;*/
+    /*right: -35px;*/
+    /*top: -55px;*/
+    /*rotation: ;*/
+    /*font-size: 10em;*/
+/*}*/

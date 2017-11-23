@@ -749,12 +749,12 @@
                             type: 'linear',
                             display: true,
                             position: 'left',
-                            gridLines: true
+                            // gridLines: true
                         }
                     ],
                     xAxes: [
                         {
-                            gridLines: true
+                            gridLines: false
                         }
                     ]
                 },
@@ -874,7 +874,10 @@
             //gauge chart object
             $scope.gaugeChartObject = {};
             $scope.gaugeChartObject.type = "Gauge";
+            var containerWidth = document.getElementById('gauge_container').offsetWidth;
+            $scope.$watch(function (newValue, OldValue) {
 
+            })
             $scope.gaugeChartObject.options = {
                 height: 200,
                 greenColor: '#41EAD4',
@@ -891,7 +894,7 @@
 
             $scope.gaugeChartObject.data = [
                 ['Label', 'Value'],
-                ['Memory', 50]
+                ['Memory', 35]
             ];
 
         }])

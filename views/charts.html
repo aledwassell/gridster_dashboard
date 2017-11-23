@@ -1,0 +1,34 @@
+<div class="row" ng-controller="charts">
+    <div class="col-sm-6">
+        <canvas id="line" class="chart chart-line" chart-data="data"
+                chart-labels="labels" chart-series="series" chart-options="options"
+                chart-dataset-override="datasetOverride" chart-click="onClick">
+        </canvas>
+    </div>
+    <div class="col-sm-6">
+        <canvas id="bar" class="chart chart-bar"
+                chart-data="data" chart-labels="labels"> chart-series="series"
+        </canvas>
+    </div>
+    <div class="col-sm-6">
+        <canvas id="base" class="chart-horizontal-bar"
+                chart-data="data" chart-labels="labels" >
+        </canvas>
+    </div>
+    <div class="col-sm-6">
+        <canvas id="base" class="chart-bar"
+                chart-data="data" chart-labels="labels" chart-colors="colors"
+                chart-dataset-override="datasetOverride" >
+        </canvas>
+    </div>
+    <div class="col-sm-6">
+        <canvas id="radar" class="chart chart-radar"
+                chart-data="data" chart-options="options" chart-labels="labels">
+        </canvas>
+    </div>
+    <div class="col-sm-6">
+        <canvas id="polar-area" class="chart chart-polar-area"
+                chart-data="data" chart-labels="labels" chart-options="options">
+        </canvas>
+    </div>
+</div>

@@ -362,6 +362,12 @@ textarea {
     color: #fff;
 }
 
+.queue-panel-footer{
+    border-top: none;
+    background-color: #9F86FF;
+    color: #fff;
+}
+
 /*Google Gauge custom rules*/
 #Google_Gauge{
     display: inline-block;

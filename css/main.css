@@ -363,10 +363,6 @@ textarea {
     font-family: inherit;
 }
 
-#Google_Gauge{
-
-}
-
 #Google_Gauge g circle:first-child{
     display: none;
 }

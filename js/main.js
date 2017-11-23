@@ -747,14 +747,14 @@
                         {
                             id: 'y-axis-1',
                             type: 'linear',
-                            display: false,
+                            display: true,
                             position: 'left',
-                            gridLines: false
+                            gridLines: true
                         }
                     ],
                     xAxes: [
                         {
-                            gridLines: false
+                            gridLines: true
                         }
                     ]
                 },

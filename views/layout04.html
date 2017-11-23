@@ -1,79 +1,143 @@
 <div class="container-fluid" ng-controller="layout03">
     <div class="row">
-        <div class="col-sm-12">
-            <canvas id="line" class="chart chart-line" chart-data="data"
-                    chart-labels="labels" chart-series="series" chart-options="options"
-                    chart-dataset-override="datasetOverride" chart-click="onClick" chart-colors="colors" style="height: 30vh; width: 100vw; padding-bottom: 25px">
-            </canvas>
-        </div>
+
         <div class="col-sm-3">
-            <div class="panel panel-default" id="first">
-                <div class="panel-body">
-                    <div class="col-xs-6 col-sm-12 col-md-6">
-                        <span>Today</span>
-                        <h1 style="margin-top: 0">780</h1>
+
+            <div class="col-sm-12">
+                <div class="panel panel-default" id="first">
+                    <div class="panel-body">
+                        <div class="col-xs-6 col-sm-12 col-md-6">
+                            <span>Today</span>
+                            <h1 style="margin-top: 0">780</h1>
+                        </div>
+                        <div class="col-xs-6 col-sm-12 col-md-6">
+                            <i class="fa fa-phone fa-flip-horizontal fa-5x pull-right card-icon"></i>
+                        </div>
                     </div>
-                    <div class="col-xs-6 col-sm-12 col-md-6">
-                        <i class="fa fa-phone fa-flip-horizontal fa-5x pull-right card-icon"></i>
+                    <div class="panel-footer text-right" id="first-footer">
+                        <i class="fa fa-phone pull-left"></i>
+                        780
                     </div>
                 </div>
-                <div class="panel-footer text-right" id="first-footer">
-                    <i class="fa fa-phone pull-left"></i>
-                    780
+            </div>
+            <div class="col-sm-12">
+                <div class="panel panel-default" id="second">
+                    <div class="panel-body">
+                        <div class="col-xs-6 col-sm-12 col-md-6">
+                            <span>Week</span>
+                            <h1 style="margin-top: 0">1,240</h1>
+                        </div>
+                        <div class="col-xs-6 col-sm-12 col-md-6">
+                            <i class="fa fa-calendar fa-5x pull-right card-icon"></i>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right" id="second-footer">
+                        <i class="fa fa-calendar pull-left"></i>
+                        1,240
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="panel panel-default" id="third">
+                    <div class="panel-body">
+                        <div class="col-xs-6 col-sm-12 col-md-6">
+                            <span>Queue</span>
+                            <h1 style="margin-top: 0">48</h1>
+                        </div>
+                        <div class="col-xs-6 col-sm-12 col-md-6">
+                            <i class="fa fa-user fa-5x pull-right card-icon"></i>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right" id="third-footer">
+                        <i class="fa fa-user pull-left"></i>
+                        48
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="panel panel-default" id="fourth">
+                    <div class="panel-body">
+                        <div class="col-xs-6 col-sm-12 col-md-6">
+                            <pan>Minutes</pan>
+                            <h1 style="margin-top: 0">15,600</h1>
+                        </div>
+                        <div class="col-xs-6 col-sm-12 col-md-6">
+                            <i class="fa fa-clock-o fa-5x pull-right card-icon"></i>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right" id="fourth-footer">
+                        <i class="fa fa-clock-o pull-left"></i>
+                        15,600
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
-            <div class="panel panel-default" id="second">
-                <div class="panel-body">
-                    <div class="col-xs-6 col-sm-12 col-md-6">
-                        <span>Week</span>
-                        <h1 style="margin-top: 0">1,240</h1>
-                    </div>
-                    <div class="col-xs-6 col-sm-12 col-md-6">
-                        <i class="fa fa-calendar fa-5x pull-right card-icon"></i>
+
+        <div class="col-sm-9">
+            <div class="col-sm-12">
+                <canvas id="line" class="chart chart-line" chart-data="data"
+                        chart-labels="labels" chart-series="series" chart-options="options"
+                        chart-dataset-override="datasetOverride" chart-click="onClick" chart-colors="colors" style="height: 30vh; width: 100vw; padding-bottom: 25px">
+                </canvas>
+            </div>
+
+            <div class="panel-group">
+                <div class="col-sm-6">
+                    <div class="panel">
+                        <div class="panel-heading queue-panel-heading">
+                            <i class="fa fa-dashboard"></i>
+                            New doughnut chart
+                        </div>
+                        <div class="panel-body queue-panel-body text-center">
+                            <div class="col-sm-12">
+                                <canvas id="doughtnut" class="chart chart-doughnut"
+                                        chart-data="doughnutData" chart-labels="doughnutLabels" chart-colors="doughnutColors">
+                                </canvas>
+                            </div>
+
+                            <div class="col-sm-6 text-left">
+                                <h5>Queue:</h5>
+                                <h5>Callers:</h5>
+                                <h5>Abandoned:</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5>{{doughnutData[1]}}</h5>
+                                <h5>{{doughnutData[2]}}</h5>
+                                <h5>{{doughnutData[3]}}</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="panel-footer text-right" id="second-footer">
-                    <i class="fa fa-calendar pull-left"></i>
-                    1,240
+
+                <div class="col-sm-6">
+                    <div class="panel">
+                        <div class="panel-heading queue-panel-heading">
+                            <i class="fa fa-dashboard"></i>
+                            Old gauge with new CSS styles
+                        </div>
+                        <div class="panel-body queue-panel-body text-center">
+                            <div class="col-sm-12">
+                                <div google-chart chart="gaugeChartObject" id="Google_Gauge"></div>
+                            </div>
+                            <div class="col-sm-6 text-left">
+                                <h5>Queue:</h5>
+                                <h5>Callers:</h5>
+                                <h5>Abandoned:</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5>{{doughnutData[1]}}</h5>
+                                <h5>{{doughnutData[2]}}</h5>
+                                <h5>{{doughnutData[3]}}</h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
-        <div class="col-sm-3">
-            <div class="panel panel-default" id="third">
-                <div class="panel-body">
-                    <div class="col-xs-6 col-sm-12 col-md-6">
-                        <span>Queue</span>
-                        <h1 style="margin-top: 0">48</h1>
-                    </div>
-                    <div class="col-xs-6 col-sm-12 col-md-6">
-                        <i class="fa fa-user fa-5x pull-right card-icon"></i>
-                    </div>
-                </div>
-                <div class="panel-footer text-right" id="third-footer">
-                    <i class="fa fa-user pull-left"></i>
-                    48
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="panel panel-default" id="fourth">
-                <div class="panel-body">
-                    <div class="col-xs-6 col-sm-12 col-md-6">
-                        <pan>Minutes</pan>
-                        <h1 style="margin-top: 0">15,600</h1>
-                    </div>
-                    <div class="col-xs-6 col-sm-12 col-md-6">
-                        <i class="fa fa-clock-o fa-5x pull-right card-icon"></i>
-                    </div>
-                </div>
-                <div class="panel-footer text-right" id="fourth-footer">
-                    <i class="fa fa-clock-o pull-left"></i>
-                    15,600
-                </div>
-            </div>
-        </div>
+
+
+
         <div class="col-sm-3  col-lg-2 pull-right panel-group">
             <div class="panel">
                 <div class="panel-heading number-panel-heading">
@@ -104,50 +168,7 @@
             </div>
         </div>
 
-        <div class="col-sm-3 pull-left panel-group">
-            <div class="panel">
-                <div class="panel-heading queue-panel-heading">
-                    <i class="fa fa-dashboard"></i>
-                    New doughnut chart
-                </div>
-                <div class="panel-body queue-panel-body text-center">
-                    <canvas id="doughtnut" class="chart chart-doughnut"
-                            chart-data="doughnutData" chart-labels="doughnutLabels" chart-colors="doughnutColors">
-                    </canvas>
-                    <div class="col-sm-6 text-left">
-                        <h5>Queue:</h5>
-                        <h5>Callers:</h5>
-                        <h5>Abandoned:</h5>
-                    </div>
-                    <div class="col-sm-6">
-                        <h5>{{doughnutData[1]}}</h5>
-                        <h5>{{doughnutData[2]}}</h5>
-                        <h5>{{doughnutData[3]}}</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="panel">
-                <div class="panel-heading queue-panel-heading">
-                    <i class="fa fa-dashboard"></i>
-                    Old gauge with new CSS styles
-                </div>
-                <div class="panel-body queue-panel-body text-center">
-                    <div class="col-sm-12">
-                        <div google-chart chart="gaugeChartObject" id="Google_Gauge"></div>
-                    </div>
-                    <div class="col-sm-6 text-left">
-                        <h5>Queue:</h5>
-                        <h5>Callers:</h5>
-                        <h5>Abandoned:</h5>
-                    </div>
-                    <div class="col-sm-6">
-                        <h5>{{doughnutData[1]}}</h5>
-                        <h5>{{doughnutData[2]}}</h5>
-                        <h5>{{doughnutData[3]}}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="col-lg-7 col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-body">

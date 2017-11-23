@@ -360,11 +360,38 @@ textarea {
 #Google_Gauge{
     display: inline-block;
     margin: 0 auto;
+    font-family: inherit;
+}
+
+#Google_Gauge{
+
 }
 
 #Google_Gauge g circle:first-child{
     display: none;
 }
-#Google_Gauge g circle{
-    stroke: #fff;
+#Google_Gauge g circle:nth-child(2) {
+    stroke: none;
+    fill: #ffffff;
+    r: 75;
+}
+
+#Google_Gauge g path:nth-child(10){
+    display: none;
+}
+
+#Google_Gauge g > g path{
+
+    d: path('c 50,0 50,100 100,100 50,0 50,-100 100,-100');
+    stroke: none;
+    stroke-width: 0;
+    fill-opacity: 1;
+    fill: '#ffffff';
+}
+
+#Google_Gauge g > g circle{
+    /*display: none;*/
+    fill: #41EAD4;
+    stroke-width: 0;
+    stroke: none;
 }

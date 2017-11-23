@@ -43,6 +43,9 @@
                 })
                 .when("/layout03", {
                     templateUrl: 'views/layout03.html'
+                })
+                .when("/layout04", {
+                    templateUrl: 'views/layout04.html'
                 });
             dashboardProvider
                 .structure('6-6', {
@@ -685,10 +688,13 @@
 
             $scope.gaugeChartObject.options = {
                 height: 200,
-                redColor: '#00fff7',
+                greenColor: '#41EAD4',
+                greenFrom: 0,
+                greenTo: 90,
+                redColor: '#FF206E',
                 redFrom: 90,
                 redTo: 100,
-                yellowColor: '#0613e9',
+                yellowColor: '#FBFF12',
                 yellowFrom: 75,
                 yellowTo: 90,
                 minorTicks: 0
@@ -696,7 +702,7 @@
 
             $scope.gaugeChartObject.data = [
                 ['Label', 'Value'],
-                ['Memory', 80]
+                ['Memory', 50]
             ];
 
         }])

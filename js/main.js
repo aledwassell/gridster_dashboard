@@ -5,7 +5,7 @@
         document.styleSheets[15].cssRules["0"].cssText = `.rebranded-header { background: ${this.value} !important;}`
     });
 
-    angular.module('app', ['ngRoute', 'ngResource', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget'])
+    angular.module('app', ['ngRoute', 'ngResource', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget', 'rzModule'])
         .service('service', ['$http', '$rootScope', function($http, $rootScope){
             var that = this;
             this.city = 'London';
@@ -37,7 +37,7 @@
 
 
         }])
-        .config(function ($routeProvider, dashboardProvider) {
+        .config(function ($routeProvider, dashboardProvider, ChartJsProvider) {
             $routeProvider
                 .when("/dashboard", {
                     templateUrl: "views/dashboard.html",
@@ -77,6 +77,11 @@
                         }]
                     }]
                 });
+            ChartJsProvider.setOptions({
+                chartColors: ['#FF5252', '#FF8A80'],
+                responsive: true,
+                maintainAspectRatio: true
+            });
         })
         .controller("LineCtrl", function ($scope) {
 
@@ -724,6 +729,21 @@
                 ['Label', 'Value'],
                 ['Memory', 50]
             ];
+
+            $scope.radioData = {};
+
+            $scope.$watch('radioData', function () {
+                console.log('Hello');
+            });
+
+            $scope.priceSlider = {
+                value: 100,
+                options: {
+                    floor: 0,
+                    ceil: 100,
+                    step: 10
+                }
+            };
 
         }])
         .controller('layout04', ['$scope', function($scope){

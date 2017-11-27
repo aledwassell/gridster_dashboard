@@ -162,11 +162,77 @@
                     </canvas>
                 </div>
                 <div class="panel-footer">
-                    <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default" autofocus ng-click="CDRreporting()">CDR Reporting</button>
-                        <button type="button" class="btn btn-default" ng-click="IVRreporting()">IVR Reporting</button>
-                        <button type="button" class="btn btn-default" ng-click="monthlyCalls()">Monthly Calls</button>
+                    <div class="container">
+                        <form>
+                            <label class="radio-inline"><input type="radio" name="minutesRadio" ng-model="radioData" value uib-btn-radio="'Left'">Minutes</label>
+                            <label class="radio-inline"><input type="radio" name="hoursRadio" ng-model="radioData" uib-btn-radio="'Left'">Hours</label>
+                            <label class="radio-inline"><input type="radio" name="daysRadio" ng-model="radioData" uib-btn-radio="'Left'">Days</label>
+                            <label class="radio-inline"><input type="radio" name="weeksRadio" ng-model="radioData" uib-btn-radio="'weeks'">Weeks</label>
+                        </form>
                     </div>
+                    <div class="col-sm-12">
+
+                        <nav class="navbar navbar-default" role="navigation">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                        data-target=".navbar-ex1-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">Home</a>
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="#">Link</a></li>
+                                    <li><a href="#">Link</a></li>
+                                </ul>
+                                <form class="navbar-form navbar-left" role="search">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </form>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="#">Link</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b
+                                                class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li><a href="#">Separated link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </nav>
+                        <ul>
+                            <li class="somthing"></li>
+                            <li class="somthing"></li>
+                            <li class="somthing"></li>
+                            <li class="somthing"></li>
+                            <li class="somthing"></li>
+                            <li class="somthing"></li>
+                            <li class="somthing"></li>
+                            <li class="somthing"></li>
+                            <li class="somthing"></li>
+                            <li class="somthing"></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <rzslider rz-slider-model="priceSlider.value" rz-slider-options="priceSlider.options"></rzslider>
+                    </div>
+                    <!--<div class="btn-group" role="group" aria-label="...">-->
+                        <!--<button type="button" class="btn btn-default" autofocus ng-click="CDRreporting()">CDR Reporting</button>-->
+                        <!--<button type="button" class="btn btn-default" ng-click="IVRreporting()">IVR Reporting</button>-->
+                        <!--<button type="button" class="btn btn-default" ng-click="monthlyCalls()">Monthly Calls</button>-->
+                    <!--</div>-->
                 </div>
             </div>
 

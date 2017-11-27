@@ -1,34 +1,65 @@
 <div class="row" ng-controller="charts">
-    <div class="col-sm-6">
-        <canvas id="line" class="chart chart-line" chart-data="data"
-                chart-labels="labels" chart-series="series" chart-options="options"
-                chart-dataset-override="datasetOverride" chart-click="onClick">
-        </canvas>
+    <div class="form-group">
+        <label for="country">Select a country:</label>
+        <select class="form-control" id="country" ng-options="country as country.name for country in countries track by country.code" ng-model="selectedCountry" ng-change="service.getHolidays(selectedCountry)">
+        </select>
     </div>
-    <div class="col-sm-6">
-        <canvas id="bar" class="chart chart-bar"
-                chart-data="data" chart-labels="labels"> chart-series="series"
-        </canvas>
+
+
+    <div class="pane panel-primary" ng-if="publicHolidayData">
+        <div class="panel-heading">
+            {{publicHolidayData.summary}}
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Holiday Name</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="holiday in publicHolidayData.items">
+                    <td>{{holiday.summary}}</td>
+                    <td>{{holiday.start.date}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="col-sm-6">
-        <canvas id="base" class="chart-horizontal-bar"
-                chart-data="data" chart-labels="labels" >
-        </canvas>
-    </div>
-    <div class="col-sm-6">
-        <canvas id="base" class="chart-bar"
-                chart-data="data" chart-labels="labels" chart-colors="colors"
-                chart-dataset-override="datasetOverride" >
-        </canvas>
-    </div>
-    <div class="col-sm-6">
-        <canvas id="radar" class="chart chart-radar"
-                chart-data="data" chart-options="options" chart-labels="labels">
-        </canvas>
-    </div>
-    <div class="col-sm-6">
-        <canvas id="polar-area" class="chart chart-polar-area"
-                chart-data="data" chart-labels="labels" chart-options="options">
-        </canvas>
-    </div>
+
+    <!--<div class="col-sm-6">-->
+        <!--<canvas id="line" class="chart chart-line" chart-data="data"-->
+                <!--chart-labels="labels" chart-series="series" chart-options="options"-->
+                <!--chart-dataset-override="datasetOverride" chart-click="onClick">-->
+        <!--</canvas>-->
+    <!--</div>-->
+    <!--<div class="col-sm-6">-->
+        <!--<canvas id="bar" class="chart chart-bar"-->
+                <!--chart-data="data" chart-labels="labels"> chart-series="series"-->
+        <!--</canvas>-->
+    <!--</div>-->
+    <!--<div class="col-sm-6">-->
+        <!--<canvas id="base" class="chart-horizontal-bar"-->
+                <!--chart-data="data" chart-labels="labels" >-->
+        <!--</canvas>-->
+    <!--</div>-->
+    <!--<div class="col-sm-6">-->
+        <!--<canvas id="base" class="chart-bar"-->
+                <!--chart-data="data" chart-labels="labels" chart-colors="colors"-->
+                <!--chart-dataset-override="datasetOverride" >-->
+        <!--</canvas>-->
+    <!--</div>-->
+    <!--<div class="col-sm-6">-->
+        <!--<canvas id="radar" class="chart chart-radar"-->
+                <!--chart-data="data" chart-options="options" chart-labels="labels">-->
+        <!--</canvas>-->
+    <!--</div>-->
+    <!--<div class="col-sm-6">-->
+        <!--<canvas id="polar-area" class="chart chart-polar-area"-->
+                <!--chart-data="data" chart-labels="labels" chart-options="options">-->
+        <!--</canvas>-->
+    <!--</div>-->
+
 </div>

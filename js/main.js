@@ -24,6 +24,18 @@
 
             this.width;
             this.height;
+            this.getHolidays = function(country){
+                var apiKey = 'AIzaSyBeTJpWPqTIb4_eHxGb9cGQfPAR7N-x1c0';
+                var url = `https://www.googleapis.com/calendar/v3/calendars/en.${country.code}%23holiday%40group.v.calendar.google.com/events?key=${apiKey}`;
+                $http.get(url)
+                    .then(function(response){
+                        that.holidayData = response.data;
+                        console.log(response)
+                    })
+                    .catch(function(err){console.log('There was an error: ', err)})
+            }
+
+
         }])
         .config(function ($routeProvider, dashboardProvider) {
             $routeProvider
@@ -904,7 +916,21 @@
         }])
 
         //possible charts
-        .controller("charts", function ($scope) {
+        .controller("charts", ['$scope', 'service', function ($scope, service) {
+
+            $scope.service = service;
+            $scope.countries = [
+                {name: 'United Kingdom', code:'uk'},
+                {name: 'United States', code:'usa'},
+                {name: 'Australia', code:'australian'},
+                {name: 'France', code:'french'},
+                {name:'Sweden', code:'swedish'}
+            ];
+            $scope.selectedCountry = $scope.countries[0];
+            $scope.service.countryCode = $scope.selectedCountry.code;
+            $scope.$watch('service.holidayData', function(newValue, oldValue, scope){
+                if($scope.service.holidayData) $scope.publicHolidayData = $scope.service.holidayData;
+            });
 
             $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
             $scope.series = ['Series A', 'Series B'];
@@ -956,7 +982,7 @@
                     type: 'line'
                 }
             ];
-        })
+        }])
 
         .run(['service', function (service) {
             service.getWeatherData();

@@ -64,7 +64,11 @@
                 .when("/possible_charts", {
                     templateUrl: 'views/charts.html',
                     controller: 'charts'
-                });
+                })
+                .when("/IVR_builder", {
+                    templateUrl: 'views/IVR_builder.html',
+                    controller: 'IVR_representation_controller'
+                })
             dashboardProvider
                 .structure('6-6', {
                     rows: [{
@@ -1002,6 +1006,13 @@
                     type: 'line'
                 }
             ];
+        }])
+        
+        .controller("IVR_representation_controller", ['$scope', function ($scope) {
+            $scope.expanded = false;
+            $scope.expand = function () {
+                $scope.expanded = !$scope.expanded;
+            }
         }])
 
         .run(['service', function (service) {

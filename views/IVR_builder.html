@@ -1,22 +1,54 @@
-<div class="container-fluid" ng-controller="IVR_representation_controller">
+<div class="container-fluid" >
     <div ng-class="[{'class-expanded': expanded}, {'class-unexpanded': expanded === false}]">
-        <a href="#"><i class="fa fa-2x pr3 fa-floppy-o"></i></a>
-        <a href="#"><i class="fa fa-2x pr3 fa-tags"></i></a>
-        <a href="#"><i class="fa fa-2x pr3 fa-undo"></i></a>
-        <a href="#"><i class="fa fa-2x pr3 fa-repeat"></i></a>
-        <a href="#"><i class="fa fa-2x pr3 fa-hand-grab-o"></i></a>
 
-        <a><i class="fa fa-2x pl3 pull-right" ng-click="expand()" ng-class="[{'fa-expand': expanded === false}, {'fa-compress': expanded === true}]"></i></a>
-        <a href="#"><i class="fa fa-2x pl3 fa-search-plus pull-right"></i></a>
-        <a href="#"><i class="fa fa-2x pl3 fa-search-minus pull-right"></i></a>
+        <div class="btn-group pull-left" uib-dropdown>
+            <button id="dropdown-button" type="button" class="btn btn-sm btn-primary" uib-dropdown-toggle>
+                Load IVR <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="dropdown-button">
+                <li role="menuitem" ng-repeat="ivr in IVRlist"><a href="#!IVR_builder"><i class="fa pr2" ng-class="[{'fa-lock': locked}, {'fa-unlock-alt': !locked}]"></i> {{ivr}}</a></li>
+            </ul>
+        </div>
+
+        <a><i class="fa fa-2x pl3 pr3" ng-class="[{'fa-lock': locked}, {'fa-unlock-alt': !locked}]" ng-click="unlock()"></i></a>
+        <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-floppy-o"></i></a>
+        <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-tags"></i></a>
+
+
+        <div class="pull-right">
+            <button class="pull-right btn btn-sm btn-info" ng-click="hide()">IVR Objects <span class="caret"></button>
+            <div ng-hide="!IVRhide" style="width: 90px; height: 100vh;" class="text-center">
+                <img src="../img/Bridge.png" class="pt2" width="45"/>
+                <img src="../img/DialToRecordMessage.png" class="pt2" width="45"/>
+                <img src="../img/Wait.png" class="pt2" width="45"/>
+                <img src="../img/Voicemail.png" class="pt2" width="45"/>
+                <img src="../img/TestValue.png" class="pt2" width="45"/>
+                <img src="../img/Start.png" class="pt2" width="45"/>
+                <img src="../img/Rest.png" class="pt2" width="45"/>
+                <img src="../img/ReadValue.png" class="pt2" width="45"/>
+                <img src="../img/PlaySound.png" class="pt2" width="45"/>
+                <img src="../img/HoursCheck.png" class="pt2" width="45"/>
+                <img src="../img/GoToIVR.png" class="pt2" width="45"/>
+                <img src="../img/GeoRouting.png" class="pt2" width="45"/>
+                <img src="../img/EndCall.png" class="pt2" width="45"/>
+                <img src="../img/DigitCapture.png" class="pt2" width="45"/>
+            </div>
+        </div>
+
+
+        <a><i class="fa fa-2x pl3 pr3 pull-right" ng-click="expand()" ng-class="[{'fa-expand': expanded === false}, {'fa-compress': expanded === true}]"></i></a>
+        <a href="#!IVR_builder"><i class="fa fa-2x pl3 fa-search-plus pull-right"></i></a>
+        <a href="#!IVR_builder"><i class="fa fa-2x pl3 fa-search-minus pull-right"></i></a>
 
         <div style="border: 2px solid #dddddd; width: 250px; height: 175px; position: absolute; border-radius: 2px;" class="mt2">
             <div style="border: 2px solid #dddddd; width: 120px; height: 80px; position: absolute; top: 20px; left: 20px; border-radius: 2px;" class="mt3">
                 <div style="background-color: #dddddd; width: 20px; height: 20px; position: relative; top: 56px; left: 96px;" class="text-center">
-                    <a href="#"><i class="fa fa-arrows" style="color: #fff; cursor: move;"></i></a>
+                    <a href="#!IVR_builder"><i class="fa fa-arrows" style="color: #fff; cursor: move;"></i></a>
                 </div>
             </div>
         </div>
+        <canvas id="canvas" ng-model="canvas"></canvas>
+
     </div>
 
 </div>

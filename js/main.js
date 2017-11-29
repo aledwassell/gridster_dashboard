@@ -1,9 +1,4 @@
 (function () {
-    document.getElementById('colourPick').addEventListener('change', function () {
-
-        // document.styleSheets[15].insertRule(`.rebranded-header { background: ${this.value} !important;}`, 0);
-        document.styleSheets[15].cssRules["0"].cssText = `.rebranded-header { background: ${this.value} !important;}`
-    });
 
     angular.module('app', ['ngRoute', 'ngResource', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget', 'rzModule'])
         .service('service', ['$http', '$rootScope', function($http, $rootScope){
@@ -1007,12 +1002,83 @@
                 }
             ];
         }])
-        
-        .controller("IVR_representation_controller", ['$scope', function ($scope) {
+        .controller('IVRmodalController', ['$scope', '$uibModal', '$uibModalInstance', function ($scope, $uibModal, $uibModalInstance) {
+            $scope.ok = function () {
+                $uibModalInstance.close();
+            };
+            $scope.cancel = function () {
+                $uibModalInstance.dismiss();
+            };
+
+            $scope.oneAtATime = true;
+
+            $scope.groups = [
+                {
+                    title: 'Dynamic Group Header - 1',
+                    content: 'Dynamic Group Body - 1'
+                },
+                {
+                    title: 'Dynamic Group Header - 2',
+                    content: 'Dynamic Group Body - 2'
+                }
+            ];
+
+            $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+            $scope.addItem = function() {
+                var newItemNo = $scope.items.length + 1;
+                $scope.items.push('Item ' + newItemNo);
+            };
+
+            $scope.status = {
+                isCustomHeaderOpen: false,
+                isFirstOpen: true,
+                isFirstDisabled: false
+            };
+        }])
+        .controller("IVR_representation_controller", ['$scope', '$rootScope', '$uibModal', '$aside', function ($scope, $rootScope, $uibModal, $aside) {
             $scope.expanded = false;
             $scope.expand = function () {
                 $scope.expanded = !$scope.expanded;
-            }
+            };
+
+            $scope.locked = false;
+            $scope.unlock = function(){
+                $scope.locked = !$scope.locked;
+            };
+
+            $scope.IVRhide = false;
+            $scope.hide = function(){
+                $scope.IVRhide = !$scope.IVRhide;
+            };
+
+            $scope.openAside = function(){
+                var asideInstance = $aside.open({
+                    templateUrl: 'views/modals/IVRmodal.html',
+                    controller: 'IVRmodalController',
+                    placement: 'left',
+                    size: 'md'
+                });
+            };
+            $scope.draw = function () {
+                var ctx;
+                var canvas = document.getElementById('canvas');
+                if(canvas.getContext){
+                    ctx = canvas.getContext('2d');
+                }
+            };
+
+            $scope.IVRlist = [
+                'London PAL Admin',
+                'Top level IVR Helpline',
+                'Scotland Emergency',
+                'Helpline Engliand',
+                'Helpline Wales',
+                'Helpline Scotland',
+                'Helpline Northern Ireland',
+                'Manchester PAL Helpline'
+            ]
+
         }])
 
         .run(['service', function (service) {

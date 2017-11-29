@@ -58,6 +58,10 @@
         <link rel="stylesheet" type="text/css" href="bower_components/angularjs-slider/dist/rzslider.css"/>
         <script src="bower_components/angularjs-slider/dist/rzslider.min.js"></script>
 
+        <!--Angular Animate-->
+        <script type="type/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+        <script type="type/javascript" src="bower_components/angular-touch/angular-touch.js"></script>
+
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
@@ -84,16 +88,11 @@
                             <li><a href="#!possible_charts">Possible Charts and Graphs</a></li>
                             <li><a href="#!IVR_builder">IVR builder layout</a></li>
                         </ul>
-                        <form class="navbar-form navbar-right">
-                            <div class="form-group">
-                                <input id="colourPick" type="color">
-                            </div>
-                        </form>
                     </div>
                 </nav>
             </header>
 
-            <div class="container-fluid" ng-controller="dashboard">
+            <div class="container-fluid" ng-controller="IVR_representation_controller">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-default">

@@ -1003,6 +1003,7 @@
             ];
         }])
         .controller('IVRmodalController', ['$scope', '$uibModal', '$uibModalInstance', function ($scope, $uibModal, $uibModalInstance) {
+            $scope.modName = 'IVR Builder';
             $scope.ok = function () {
                 $uibModalInstance.close();
             };
@@ -1077,7 +1078,30 @@
                 'Helpline Scotland',
                 'Helpline Northern Ireland',
                 'Manchester PAL Helpline'
-            ]
+            ];
+
+            $scope.IVRobjectList = [
+                {name: 'Bridge', imgSrc: '../img/labels/bridge_label.png'},
+                {name: 'DialToRecordMessage', imgSrc: '../img/labels/DialToRecordMessage_label.png'},
+                {name: 'DigitCapture', imgSrc: '../img/labels/DigitCapture_label.png'},
+                {name: 'EndCall', imgSrc: '../img/labels/EndCall_label.png'},
+                {name: 'GeoRouting', imgSrc: '../img/labels/GeoRouting_label.png'},
+                {name: 'GoToIVR', imgSrc: '../img/labels/GoToIVR_label.png'},
+                {name: 'HoursCheck', imgSrc: '../img/labels/HoursCheck_label.png'},
+                {name: 'PlaySound', imgSrc: '../img/labels/PlaySound_label.png'},
+                {name: 'ReadValue', imgSrc: '../img/labels/ReadValue_label.png'},
+                {name: 'Rest', imgSrc: '../img/labels/Rest_label.png'},
+                {name: 'Start', imgSrc: '../img/labels/Start_label.png'},
+                {name: 'TestValue', imgSrc: '../img/labels/TestValue_label.png'},
+                {name: 'Voicemail', imgSrc: '../img/labels/Voicemail_label.png'},
+                {name: 'Wait', imgSrc: '../img/labels/Wait_label.png'}
+            ];
+
+            $scope.current_IVR_name = "No IVR loaded";
+
+            $scope.changeName = function(namePassed){
+                $scope.current_IVR_name = namePassed;
+            }
 
         }])
 
@@ -1086,3 +1110,31 @@
         }]);
 
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

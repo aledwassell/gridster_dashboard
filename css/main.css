@@ -413,6 +413,7 @@ textarea {
     stroke: none;
 }
 .class-expanded, .class-unexpanded{
+    background: linear-gradient(to right, #fffff0 , #f1f1f1);
     padding: 10px;
     border-radius: 4px;
     border: 2px solid #dddddd;

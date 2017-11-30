@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('app', ['ngRoute', 'ngResource', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget', 'rzModule'])
+    angular.module('app', ['ngRoute', 'ngResource', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget', 'rzModule', 'ngAnimate', 'ngMaterial'])
         .service('service', ['$http', '$rootScope', function($http, $rootScope){
             var that = this;
             this.city = 'London';
@@ -64,6 +64,14 @@
                     templateUrl: 'views/IVR_builder.html',
                     controller: 'IVR_representation_controller'
                 })
+                .when("/IVR_builder02", {
+                    templateUrl: 'views/IVR_builder02.html',
+                    controller: 'IVR_representation_controller'
+                })
+                .when("/IVR_builder03", {
+                    templateUrl: 'views/IVR_builder03.html',
+                    controller: 'IVR_material_menu'
+                });
             dashboardProvider
                 .structure('6-6', {
                     rows: [{
@@ -1073,9 +1081,8 @@
             $scope.draw = function () {
                 var canvas = document.getElementById('canvas');
                 if(canvas.getContext){
-                    $scope.ctx = canvas.getContext('2d');
-                    $scope.ctx.fillStyle('green');
-                    $scope.ctx.fillRect(10, 15, 100, 100);
+                    // $scope.ctx = canvas.getContext('2d');
+                    // $scope.ctx.fillRect(10, 15, 100, 100);
                 }
             };
 
@@ -1127,6 +1134,9 @@
             $scope.changeName = function(namePassed){
                 $scope.current_IVR_name = namePassed;
             };
+
+        }])
+        .controller('IVR_material_menu', ['$scope', function($scope){
 
         }])
 

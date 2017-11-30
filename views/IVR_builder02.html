@@ -1,0 +1,51 @@
+<div class="container-fluid" >
+    <div ng-class="[{'class-expanded': expanded}, {'class-unexpanded': expanded === false}]" id="canvas_wrapper">
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a uib-dropdown-toggle uib-tooltip="Load existing IVR" tooltip-placement="{{tooltipPlacement}}">Load IVR <span class="caret"></span></a></li>
+
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="dropdown-button">
+                        <li role="menuitem" ng-repeat="ivr in IVRlist"><a href="#!IVR_builder" ng-click="draw(); changeName(ivr)"><i class="fa pr2" ng-class="[{'fa-lock': locked}, {'fa-unlock-alt': !locked}]"></i> {{ivr}}</a></li>
+                    </ul>
+
+                    <li><a><i class="fa fa-1x pl3 pr3" ng-class="[{'fa-lock': locked}, {'fa-unlock-alt': !locked}]" ng-click="unlock()" uib-tooltip="Lock IVR editing to only you" tooltip-placement="{{tooltipPlacement}}"></i></a></li>
+                    <li><a href="#!IVR_builder"><i class="fa fa-1x pr3 fa-file-o" uib-tooltip="Create new IVR" tooltip-placement="{{tooltipPlacement}}"></i></a></li>
+                    <li><a href="#!IVR_builder"><i class="fa fa-1x pr3 fa-floppy-o" uib-tooltip="Save IVR" tooltip-placement="{{tooltipPlacement}}"></i></a></li>
+                    <li><a href="#!IVR_builder"><i class="fa fa-1x pr3 fa-tags" uib-tooltip="See object IDs and information about them" tooltip-placement="{{tooltipPlacement}}"></i></a></li>
+                    <li><a href="#!IVR_builder"><i class="fa fa-1x pr3 fa-file-image-o" uib-tooltip="Save IVR as image" tooltip-placement="{{tooltipPlacement}}"></i></a></li>
+                    <li><a href="#!IVR_builder"><i class="fa fa-1x pr3 fa-pencil" uib-tooltip="Rename IVR" tooltip-placement="{{tooltipPlacement}}"></i></a></li>
+                    <li><a href="#!IVR_builder"><i class="fa fa-1x pr3 fa-trash" uib-tooltip="Delete IVR" style="color: #9e0505" tooltip-placement="{{tooltipPlacement}}"></i></a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a><i class="fa fa-1x pl3 pr3 pull-right" ng-click="expand()" ng-class="[{'fa-expand': expanded === false}, {'fa-compress': expanded === true}]" uib-tooltip="Fullscreen" tooltip-placement="{{tooltipPlacement}}"></i></a></li>
+                    <li><a href="#!IVR_builder"><i class="fa fa-1x pl3 fa-search-minus pull-right" ng-click="zoomOut()" uib-tooltip="Zoom out" tooltip-placement="{{tooltipPlacement}}"></i></a></li>
+                    <li><a href="#!IVR_builder"><i class="fa fa-1x pl3 fa-search-plus pull-right" ng-click="zoomIn()" uib-tooltip="Zoom in" tooltip-placement="{{tooltipPlacement}}"></i></a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">IVR Objects <span class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li role="menuitem" ng-repeat="object in IVRobjectList"><a href="#!IVR_builder"><img src="{{object.imgSrc}}" ng-click="draw()"></a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+
+            </div><!-- /.navbar-collapse -->
+        </nav>
+
+
+        <div style="border: 2px solid #dddddd; width: 250px; height: 175px; position: absolute; border-radius: 2px;" class="mt2" id="mini_map">
+            <div style="border: 2px solid #dddddd; width: 120px; height: 80px; position: absolute; top: 20px; left: 20px; border-radius: 2px;" class="mt3">
+                <div style="background-color: #dddddd; width: 20px; height: 20px; position: relative; top: 56px; left: 96px;" class="text-center">
+                    <a href="#!IVR_builder"><i class="fa fa-arrows" style="color: #fff; cursor: move;"></i></a>
+                </div>
+            </div>
+        </div>
+        <canvas id="canvas" ng-model="canvas"></canvas>
+
+    </div>
+
+</div>

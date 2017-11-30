@@ -3,21 +3,21 @@
         <div style="display: flex; justify-content: space-between;">
             <div>
                 <div class="btn-group pull-left" uib-dropdown>
-                    <button id="dropdown-button" type="button" class="btn btn-sm btn-primary" uib-dropdown-toggle uib-tooltip="Load existing IVR">
+                    <button id="dropdown-button" type="button" class="btn btn-sm btn-primary" uib-dropdown-toggle uib-tooltip="Load existing IVR" tooltip-placement="{{tooltipPlacement}}">
                         Load IVR <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="dropdown-button">
-                        <li role="menuitem" ng-repeat="ivr in IVRlist"><a href="#!IVR_builder" ng-click="changeName(ivr)"><i class="fa pr2" ng-class="[{'fa-lock': locked}, {'fa-unlock-alt': !locked}]"></i> {{ivr}}</a></li>
+                        <li role="menuitem" ng-repeat="ivr in IVRlist"><a href="#!IVR_builder" ng-click="draw(), changeName(ivr)"><i class="fa pr2" ng-class="[{'fa-lock': locked}, {'fa-unlock-alt': !locked}]"></i> {{ivr}}</a></li>
                     </ul>
                 </div>
 
-                <a><i class="fa fa-2x pl3 pr3" ng-class="[{'fa-lock': locked}, {'fa-unlock-alt': !locked}]" ng-click="unlock()" uib-tooltip="Lock IVR editing to only you"></i></a>
-                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-file-o" uib-tooltip="Create new IVR"></i></a>
-                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-floppy-o" uib-tooltip="Save IVR"></i></a>
-                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-tags" uib-tooltip="See object IDs and information about them"></i></a>
-                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-file-image-o" uib-tooltip="Save IVR as image"></i></a>
-                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-pencil" uib-tooltip="Rename IVR"></i></a>
-                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-trash" uib-tooltip="Delete IVR"></i></a>
+                <a><i class="fa fa-2x pl3 pr3" ng-class="[{'fa-lock': locked}, {'fa-unlock-alt': !locked}]" ng-click="unlock()" uib-tooltip="Lock IVR editing to only you" tooltip-placement="{{tooltipPlacement}}"></i></a>
+                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-file-o" uib-tooltip="Create new IVR" tooltip-placement="{{tooltipPlacement}}"></i></a>
+                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-floppy-o" uib-tooltip="Save IVR" tooltip-placement="{{tooltipPlacement}}"></i></a>
+                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-tags" uib-tooltip="See object IDs and information about them" tooltip-placement="{{tooltipPlacement}}"></i></a>
+                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-file-image-o" uib-tooltip="Save IVR as image" tooltip-placement="{{tooltipPlacement}}"></i></a>
+                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-pencil" uib-tooltip="Rename IVR" tooltip-placement="{{tooltipPlacement}}"></i></a>
+                <a href="#!IVR_builder"><i class="fa fa-2x pr3 fa-trash" uib-tooltip="Delete IVR" style="color: #9e0505" tooltip-placement="{{tooltipPlacement}}"></i></a>
             </div>
 
 
@@ -29,38 +29,38 @@
 
             <div>
                 <div class="pull-right btn-group" uib-dropdown>
-                    <button id="IVR-dropdown" type="button" class="pull-right btn btn-sm btn-info" uib-dropdown-toggle uib-tooltip="Choose IVR object">
+                    <button id="IVR-dropdown" type="button" class="pull-right btn btn-sm btn-info" uib-dropdown-toggle uib-tooltip="Choose IVR object" tooltip-placement="{{tooltipPlacement}}">
                         IVR Objects <span class="caret">
                     </button>
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="IVR-dropdown">
-                        <li role="menuitem" ng-repeat="object in IVRobjectList"><a href="#!IVR_builder"><img src="{{object.imgSrc}}"></a></li>
+                        <li role="menuitem" ng-repeat="object in IVRobjectList"><a href="#!IVR_builder"><img src="{{object.imgSrc}}" ng-click="draw()"></a></li>
                     </ul>
                 </div>
 
-                <div class="pull-right btn-group" uib-dropdown>
-                    <button class="pull-right btn btn-sm btn-info" ng-click="hide()">IVR Objects <span class="caret"></button>
-                    <div ng-hide="!IVRhide" style="width: 90px;" class="text-center">
-                        <img src="../img/icons/Bridge.png" class="pt2" width="45"/>
-                        <img src="../img/icons/DialToRecordMessage.png" class="pt2" width="45"/>
-                        <img src="../img/icons/Wait.png" class="pt2" width="45"/>
-                        <img src="../img/icons/Voicemail.png" class="pt2" width="45"/>
-                        <img src="../img/icons/TestValue.png" class="pt2" width="45"/>
-                        <img src="../img/icons/Start.png" class="pt2" width="45"/>
-                        <img src="../img/icons/Rest.png" class="pt2" width="45"/>
-                        <img src="../img/icons/ReadValue.png" class="pt2" width="45"/>
-                        <img src="../img/icons/PlaySound.png" class="pt2" width="45"/>
-                        <img src="../img/icons/HoursCheck.png" class="pt2" width="45"/>
-                        <img src="../img/icons/GoToIVR.png" class="pt2" width="45"/>
-                        <img src="../img/icons/GeoRouting.png" class="pt2" width="45"/>
-                        <img src="../img/icons/EndCall.png" class="pt2" width="45"/>
-                        <img src="../img/icons/DigitCapture.png" class="pt2" width="45"/>
-                    </div>
-                </div>
+                <!--<div class="pull-right btn-group" uib-dropdown>-->
+                    <!--<button class="pull-right btn btn-sm btn-info" ng-click="hide()">IVR Objects <span class="caret"></button>-->
+                    <!--<div ng-hide="!IVRhide" style="width: 90px;" class="text-center">-->
+                        <!--<img src="../img/icons/Bridge.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/DialToRecordMessage.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/Wait.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/Voicemail.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/TestValue.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/Start.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/Rest.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/ReadValue.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/PlaySound.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/HoursCheck.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/GoToIVR.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/GeoRouting.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/EndCall.png" class="pt2" width="45"/>-->
+                        <!--<img src="../img/icons/DigitCapture.png" class="pt2" width="45"/>-->
+                    <!--</div>-->
+                <!--</div>-->
 
 
-                <a><i class="fa fa-2x pl3 pr3 pull-right" ng-click="expand()" ng-class="[{'fa-expand': expanded === false}, {'fa-compress': expanded === true}]" uib-tooltip="Fullscreen"></i></a>
-                <a href="#!IVR_builder"><i class="fa fa-2x pl3 fa-search-plus pull-right" uib-tooltip="Zoom in"></i></a>
-                <a href="#!IVR_builder"><i class="fa fa-2x pl3 fa-search-minus pull-right" uib-tooltip="Zoom out"></i></a>
+                <a><i class="fa fa-2x pl3 pr3 pull-right" ng-click="expand()" ng-class="[{'fa-expand': expanded === false}, {'fa-compress': expanded === true}]" uib-tooltip="Fullscreen" tooltip-placement="{{tooltipPlacement}}"></i></a>
+                <a href="#!IVR_builder"><i class="fa fa-2x pl3 fa-search-minus pull-right" uib-tooltip="Zoom out" tooltip-placement="{{tooltipPlacement}}"></i></a>
+                <a href="#!IVR_builder"><i class="fa fa-2x pl3 fa-search-plus pull-right" uib-tooltip="Zoom in" tooltip-placement="{{tooltipPlacement}}"></i></a>
             </div>
         </div>
 

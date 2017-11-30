@@ -1041,7 +1041,14 @@
             $scope.expanded = false;
             $scope.expand = function () {
                 $scope.expanded = !$scope.expanded;
+                $scope.tooltipChange();
             };
+
+            $scope.tooltipChange = function(){
+                if($scope.expanded === false) $scope.tooltipPlacement = 'top';
+                if($scope.expanded === true) $scope.tooltipPlacement = 'bottom';
+            }
+
 
             $scope.locked = false;
             $scope.unlock = function(){
@@ -1066,6 +1073,7 @@
                 var canvas = document.getElementById('canvas');
                 if(canvas.getContext){
                     ctx = canvas.getContext('2d');
+                    console.log(ctx)
                 }
             };
 
@@ -1101,7 +1109,7 @@
 
             $scope.changeName = function(namePassed){
                 $scope.current_IVR_name = namePassed;
-            }
+            };
 
         }])
 

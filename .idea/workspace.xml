@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2eb815e9-231d-4814-800f-da45fc03bed8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/IVR_builder.html" afterPath="$PROJECT_DIR$/views/IVR_builder.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,14 +25,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.1">
+    <splitter split-orientation="horizontal" split-proportion="0.38263306">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="250">
-                  <caret line="1066" column="5" lean-forward="true" selection-start-line="1066" selection-start-column="5" selection-end-line="1066" selection-end-column="5" />
+                <state relative-caret-position="272">
+                  <caret line="1068" column="19" lean-forward="false" selection-start-line="1068" selection-start-column="19" selection-end-line="1068" selection-end-column="19" />
                   <folding>
                     <element signature="e#274#1621#0" expanded="false" />
                     <element signature="e#325#1620#0" expanded="false" />
@@ -248,9 +249,9 @@
                   <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
                   <folding>
                     <element signature="n#style#0;n#i#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <marker date="1511972500635" expanded="true" signature="5083:5174" ph="..." />
-                    <marker date="1511972500635" expanded="true" signature="5083:5193" ph="..." />
-                    <marker date="1511972500635" expanded="true" signature="5083:5208" ph="..." />
+                    <marker date="1511977099415" expanded="true" signature="5757:5848" ph="..." />
+                    <marker date="1511977099415" expanded="true" signature="5757:5867" ph="..." />
+                    <marker date="1511977099415" expanded="true" signature="5757:5882" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -273,12 +274,12 @@
           <file leaf-file-name="IVR_builder.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/IVR_builder.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="18" column="97" lean-forward="false" selection-start-line="18" selection-start-column="97" selection-end-line="18" selection-end-column="97" />
+                <state relative-caret-position="391">
+                  <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#i#0;n#a#6;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -368,9 +369,10 @@
   </component>
   <component name="PhpDebugGeneral" xdebug_debug_port="9001" />
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="Remote PHP 5.6" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1920" />
-    <option name="width" value="1786" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1874" />
+    <option name="y" value="68" />
+    <option name="width" value="1760" />
     <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -495,7 +497,7 @@
       <workItem from="1511796593618" duration="606000" />
       <workItem from="1511860688097" duration="1446000" />
       <workItem from="1511862976647" duration="25000" />
-      <workItem from="1511865629311" duration="34305000" />
+      <workItem from="1511865629311" duration="38078000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1510592296930</created>
@@ -777,18 +779,25 @@
       <option name="project" value="LOCAL" />
       <updated>1511971902532</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="adding some layout UI">
+      <created>1511972508759</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1511972508759</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215190000" />
+    <option name="totallyTimeSpent" value="218963000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="0" width="1786" height="1080" extended-state="0" />
+    <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.052723058" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.048507463" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1989,8 +1998,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="1066" column="5" lean-forward="true" selection-start-line="1066" selection-start-column="5" selection-end-line="1066" selection-end-column="5" />
+        <state relative-caret-position="272">
+          <caret line="1068" column="19" lean-forward="false" selection-start-line="1068" selection-start-column="19" selection-end-line="1068" selection-end-column="19" />
           <folding>
             <element signature="e#274#1621#0" expanded="false" />
             <element signature="e#325#1620#0" expanded="false" />
@@ -2201,12 +2210,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/IVR_builder.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="97" lean-forward="false" selection-start-line="18" selection-start-column="97" selection-end-line="18" selection-end-column="97" />
+        <state relative-caret-position="391">
+          <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#6;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />

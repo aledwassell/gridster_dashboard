@@ -1068,14 +1068,31 @@
                     size: 'md'
                 });
             };
+            $scope.ctx;
+
             $scope.draw = function () {
-                var ctx;
                 var canvas = document.getElementById('canvas');
                 if(canvas.getContext){
-                    ctx = canvas.getContext('2d');
-                    console.log(ctx)
+                    $scope.ctx = canvas.getContext('2d');
+                    $scope.ctx.fillStyle('green');
+                    $scope.ctx.fillRect(10, 15, 100, 100);
                 }
             };
+
+
+            var size = 0;
+            $scope.zoomIn = function(){
+                size++;
+                console.log(size, $scope.ctx)
+                $scope.ctx.scale(size, size);
+            };
+            $scope.zoomOut = function(){
+                size--;
+                console.log(size, $scope.ctx)
+                $scope.ctx.scale(size, size);
+            };
+
+
 
             $scope.IVRlist = [
                 'London PAL Admin',

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2eb815e9-231d-4814-800f-da45fc03bed8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/IVR_builder.html" afterPath="$PROJECT_DIR$/views/IVR_builder.html" />
     </list>
@@ -25,14 +26,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.38263306">
+    <splitter split-orientation="horizontal" split-proportion="0.4332085">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="1068" column="19" lean-forward="false" selection-start-line="1068" selection-start-column="19" selection-end-line="1068" selection-end-column="19" />
+                <state relative-caret-position="204">
+                  <caret line="1064" column="62" lean-forward="true" selection-start-line="1064" selection-start-column="62" selection-end-line="1064" selection-end-column="62" />
                   <folding>
                     <element signature="e#274#1621#0" expanded="false" />
                     <element signature="e#325#1620#0" expanded="false" />
@@ -246,12 +247,12 @@
             <entry file="file://$PROJECT_DIR$/views/IVR_builder.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-238">
-                  <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+                  <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
                   <folding>
                     <element signature="n#style#0;n#i#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <marker date="1511977099415" expanded="true" signature="5757:5848" ph="..." />
-                    <marker date="1511977099415" expanded="true" signature="5757:5867" ph="..." />
-                    <marker date="1511977099415" expanded="true" signature="5757:5882" ph="..." />
+                    <marker date="1512040628339" expanded="true" signature="4158:4249" ph="..." />
+                    <marker date="1512040628339" expanded="true" signature="4158:4268" ph="..." />
+                    <marker date="1512040628339" expanded="true" signature="4158:4283" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -271,19 +272,24 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="IVR_builder.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/css/main.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="222">
+                  <caret line="414" column="35" lean-forward="false" selection-start-line="414" selection-start-column="35" selection-end-line="414" selection-end-column="35" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IVR_builder.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/IVR_builder.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+                <state relative-caret-position="629">
+                  <caret line="49" column="141" lean-forward="false" selection-start-line="49" selection-start-column="141" selection-end-line="49" selection-end-column="141" />
                   <folding>
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#i#0;n#a#6;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#i#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <marker date="1512040628339" expanded="true" signature="4158:4249" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -310,6 +316,9 @@
       <find>#!IVR_builder</find>
       <find>text-center</find>
     </findStrings>
+    <replaceStrings>
+      <replace>href=&quot;#!IVR_builder&quot;</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -339,10 +348,10 @@
         <option value="$PROJECT_DIR$/views/layout03.html" />
         <option value="$PROJECT_DIR$/views/modals/settingsModal.html" />
         <option value="$PROJECT_DIR$/views/modals/IVRmodal.html" />
-        <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/views/IVR_builder.html" />
+        <option value="$PROJECT_DIR$/css/main.css" />
       </list>
     </option>
   </component>
@@ -370,10 +379,10 @@
   <component name="PhpDebugGeneral" xdebug_debug_port="9001" />
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="Remote PHP 5.6" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1874" />
-    <option name="y" value="68" />
-    <option name="width" value="1760" />
-    <option name="height" value="1080" />
+    <option name="x" value="-1683" />
+    <option name="y" value="-14" />
+    <option name="width" value="1637" />
+    <option name="height" value="498" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -497,7 +506,7 @@
       <workItem from="1511796593618" duration="606000" />
       <workItem from="1511860688097" duration="1446000" />
       <workItem from="1511862976647" duration="25000" />
-      <workItem from="1511865629311" duration="38078000" />
+      <workItem from="1511865629311" duration="42179000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1510592296930</created>
@@ -786,18 +795,25 @@
       <option name="project" value="LOCAL" />
       <updated>1511972508759</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="adding some layout UI">
+      <created>1512036061244</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1512036061244</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218963000" />
+    <option name="totallyTimeSpent" value="223064000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.048507463" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14605543" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1930,14 +1946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="444" column="0" lean-forward="false" selection-start-line="444" selection-start-column="0" selection-end-line="444" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/GoToIVR.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1998,8 +2006,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="1068" column="19" lean-forward="false" selection-start-line="1068" selection-start-column="19" selection-end-line="1068" selection-end-column="19" />
+        <state relative-caret-position="204">
+          <caret line="1064" column="62" lean-forward="true" selection-start-line="1064" selection-start-column="62" selection-end-line="1064" selection-end-column="62" />
           <folding>
             <element signature="e#274#1621#0" expanded="false" />
             <element signature="e#325#1620#0" expanded="false" />
@@ -2210,17 +2218,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/IVR_builder.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+        <state relative-caret-position="629">
+          <caret line="49" column="141" lean-forward="false" selection-start-line="49" selection-start-column="141" selection-end-line="49" selection-end-column="141" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#6;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1512040628339" expanded="true" signature="4158:4249" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="414" column="35" lean-forward="false" selection-start-line="414" selection-start-column="35" selection-end-line="414" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>

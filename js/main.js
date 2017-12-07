@@ -1,6 +1,5 @@
 (function () {
-
-    angular.module('app', ['ngRoute', 'ngResource', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget', 'rzModule', 'ngAnimate', 'ngMaterial'])
+    angular.module('app', ['ngRoute', 'ngResource', 'ngAnimate', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget', 'rzModule', 'ngMaterial'])
         .service('service', ['$http', '$rootScope', function($http, $rootScope){
             var that = this;
             this.city = 'London';
@@ -89,6 +88,26 @@
                 responsive: true,
                 maintainAspectRatio: true
             });
+        })
+        .filter('keyboardShortcut', function($window) {
+            return function(str) {
+                if (!str) return;
+                var keys = str.split('-');
+                var isOSX = /Mac OS X/.test($window.navigator.userAgent);
+
+                var seperator = (!isOSX || keys.length > 2) ? '+' : '';
+
+                var abbreviations = {
+                    M: isOSX ? '' : 'Ctrl',
+                    A: isOSX ? 'Option' : 'Alt',
+                    S: 'Shift'
+                };
+
+                return keys.map(function(key, index) {
+                    var last = index == keys.length - 1;
+                    return last ? key : abbreviations[key];
+                }).join(seperator);
+            };
         })
         .controller("LineCtrl", function ($scope) {
 
@@ -1137,7 +1156,22 @@
 
         }])
         .controller('IVR_material_menu', ['$scope', function($scope){
-
+            $scope.IVRobjectList = [
+                {name: 'Bridge', imgSrc: '../img/labels/bridge_label.png'},
+                {name: 'DialToRecordMessage', imgSrc: '../img/labels/DialToRecordMessage_label.png'},
+                {name: 'DigitCapture', imgSrc: '../img/labels/DigitCapture_label.png'},
+                {name: 'EndCall', imgSrc: '../img/labels/EndCall_label.png'},
+                {name: 'GeoRouting', imgSrc: '../img/labels/GeoRouting_label.png'},
+                {name: 'GoToIVR', imgSrc: '../img/labels/GoToIVR_label.png'},
+                {name: 'HoursCheck', imgSrc: '../img/labels/HoursCheck_label.png'},
+                {name: 'PlaySound', imgSrc: '../img/labels/PlaySound_label.png'},
+                {name: 'ReadValue', imgSrc: '../img/labels/ReadValue_label.png'},
+                {name: 'Rest', imgSrc: '../img/labels/Rest_label.png'},
+                {name: 'Start', imgSrc: '../img/labels/Start_label.png'},
+                {name: 'TestValue', imgSrc: '../img/labels/TestValue_label.png'},
+                {name: 'Voicemail', imgSrc: '../img/labels/Voicemail_label.png'},
+                {name: 'Wait', imgSrc: '../img/labels/Wait_label.png'}
+            ];
         }])
 
         .run(['service', function (service) {

@@ -1,11 +1,111 @@
 <div ng-controller="IVR_material_menu">
+    <div ng-class="[{'class-expanded': expanded}, {'class-unexpanded': expanded === false}]" id="canvas_wrapper">
+        <div>
+            <md-menu-bar>
+                <md-menu>
+                    <button ng-click="$mdMenu.open()">
+                        File
+                    </button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <i class="fa fa-file-o"></i> New IVR <span class="md-alt-text"> {{ 'M-N' | keyboardShortcut }}</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <i class="fa fa-folder-open-o"></i> Load IVR <span class="md-alt-text">{{ 'M-O' | keyboardShortcut }}</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <i class="fa fa-floppy-o"></i> Save IVR <span class="md-alt-text">{{ 'M-S' | keyboardShortcut }}</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <i class="fa fa-image"></i> Save to image
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <i class="fa fa-cogs"></i> Settings
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu>
+                    <button ng-click="$mdMenu.open()">
+                        Edit
+                    </button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <i class="fa fa-undo"></i> Undo <span class="md-alt-text">{{ 'M-Z' | keyboardShortcut }}</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <i class="fa fa-repeat"></i> Redo <span class="md-alt-text">{{ 'M-S-Z' | keyboardShortcut }}</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-divider></md-menu-divider>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <i class="fa fa-scissors"></i> Cut <span class="md-alt-text">{{ 'M-X' | keyboardShortcut }}</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <i class="fa fa-files-o"></i> Copy <span class="md-alt-text">{{ 'M-C' | keyboardShortcut }}</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <i class="fa fa-clipboard"></i> Paste <span class="md-alt-text">{{ 'M-V' | keyboardShortcut }}</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <i class="fa fa-trash-o"></i> Delete <span class="md-alt-text">{{ 'M-S-D' | keyboardShortcut }}</span>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu class="pull-right">
+                    <md-button ng-click="$mdMenu.open()">
+                        IVR Objects <span class="caret">
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item ng-repeat="object in IVRobjectList">
+                            <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                <img src="{{object.imgSrc}}" height="60px">
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu >
+                    <i class="fa fa-1x ml3" ng-click="expand()" ng-class="[{'fa-expand': expanded === false}, {'fa-compress': expanded === true}]" uib-tooltip="Fullscreen" tooltip-placement="{{tooltipPlacement}}"></i>
+                </md-menu>
+                <md-menu >
+                    <i class="fa fa-1x ml3 fa-search-minus" ng-click="zoomOut()" uib-tooltip="Zoom out" tooltip-placement="{{tooltipPlacement}}"></i>
+                </md-menu>
+                <md-menu>
+                    <i class="fa fa-1x ml3 fa-search-plus" ng-click="zoomIn()" uib-tooltip="Zoom in" tooltip-placement="{{tooltipPlacement}}"></i>
+                </md-menu>
 
+            </md-menu-bar>
+        </div>
 
+        <div style="border: 2px solid #dddddd; width: 250px; height: 175px; position: absolute; border-radius: 2px;" class="mt2" id="mini_map">
+            <div style="border: 2px solid #dddddd; width: 120px; height: 80px; position: absolute; top: 20px; left: 20px; border-radius: 2px;" class="mt3">
+                <div style="background-color: #dddddd; width: 20px; height: 20px; position: relative; top: 56px; left: 96px;" class="text-center">
+                    <a href="#!IVR_builder"><i class="fa fa-arrows" style="color: #fff; cursor: move;"></i></a>
+                </div>
+            </div>
+        </div>
+        <canvas id="canvas" ng-model="canvas"></canvas>
 
-
-
-
-
-
+    </div>
 
 </div>

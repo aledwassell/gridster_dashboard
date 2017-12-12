@@ -1,5 +1,5 @@
 (function () {
-    angular.module('app', ['ngRoute', 'ngResource', 'ngAnimate', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'adf.widget.queue-widget', 'rzModule', 'ngMaterial'])
+    angular.module('app', ['ngRoute', 'ngResource', 'ngAnimate', 'ngAside', 'ui.bootstrap', 'chart.js', 'gridster', 'googlechart', 'adf', 'adf.structures.base', 'adf.widget.clock', 'adf.widget.weather', 'rzModule', 'ngMaterial'])
         .service('service', ['$http', '$rootScope', function($http, $rootScope){
             var that = this;
             this.city = 'London';
@@ -1132,20 +1132,20 @@
             ];
 
             $scope.IVRobjectList = [
-                {name: 'Bridge', imgSrc: '../img/labels/bridge_label.png'},
-                {name: 'DialToRecordMessage', imgSrc: '../img/labels/DialToRecordMessage_label.png'},
-                {name: 'DigitCapture', imgSrc: '../img/labels/DigitCapture_label.png'},
-                {name: 'EndCall', imgSrc: '../img/labels/EndCall_label.png'},
-                {name: 'GeoRouting', imgSrc: '../img/labels/GeoRouting_label.png'},
-                {name: 'GoToIVR', imgSrc: '../img/labels/GoToIVR_label.png'},
-                {name: 'HoursCheck', imgSrc: '../img/labels/HoursCheck_label.png'},
-                {name: 'PlaySound', imgSrc: '../img/labels/PlaySound_label.png'},
-                {name: 'ReadValue', imgSrc: '../img/labels/ReadValue_label.png'},
-                {name: 'Rest', imgSrc: '../img/labels/Rest_label.png'},
-                {name: 'Start', imgSrc: '../img/labels/Start_label.png'},
-                {name: 'TestValue', imgSrc: '../img/labels/TestValue_label.png'},
-                {name: 'Voicemail', imgSrc: '../img/labels/Voicemail_label.png'},
-                {name: 'Wait', imgSrc: '../img/labels/Wait_label.png'}
+                {name: 'Bridge', imgSrc: '../img/labels/bridge_label.svg'},
+                {name: 'DialToRecordMessage', imgSrc: '../img/labels/DialToRecordMessage_label.svg'},
+                {name: 'DigitCapture', imgSrc: '../img/labels/DigitCapture_label.svg'},
+                {name: 'EndCall', imgSrc: '../img/labels/EndCall_label.svg'},
+                {name: 'GeoRouting', imgSrc: '../img/labels/GeoRouting_label.svg'},
+                {name: 'GoToIVR', imgSrc: '../img/labels/GoToIVR_label.svg'},
+                {name: 'HoursCheck', imgSrc: '../img/labels/HoursCheck_label.svg'},
+                {name: 'PlaySound', imgSrc: '../img/labels/PlaySound_label.svg'},
+                {name: 'ReadValue', imgSrc: '../img/labels/ReadValue_label.svg'},
+                {name: 'Rest', imgSrc: '../img/labels/Rest_label.svg'},
+                {name: 'Start', imgSrc: '../img/labels/Start_label.svg'},
+                {name: 'TestValue', imgSrc: '../img/labels/TestValue_label.svg'},
+                {name: 'Voicemail', imgSrc: '../img/labels/Voicemail_label.svg'},
+                {name: 'Wait', imgSrc: '../img/labels/Wait_label.svg'}
             ];
 
             $scope.current_IVR_name = "No IVR loaded";

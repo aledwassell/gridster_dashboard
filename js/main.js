@@ -64,6 +64,14 @@
                     templateUrl: 'views/IVR_builder.html',
                     controller: 'IVR_representation_controller'
                 })
+                .when("/IVR_builder02", {
+                    templateUrl: 'views/IVR_builder02.html',
+                    controller: 'IVR_representation_controller'
+                })
+                .when("/IVR_builder03", {
+                    templateUrl: 'views/IVR_builder03.html',
+                    controller: 'IVR_material_menu'
+                });
             dashboardProvider
                 .structure('6-6', {
                     rows: [{
@@ -81,6 +89,26 @@
                 responsive: true,
                 maintainAspectRatio: true
             });
+        })
+        .filter('keyboardShortcut', function($window) {
+            return function(str) {
+                if (!str) return;
+                var keys = str.split('-');
+                var isOSX = /Mac OS X/.test($window.navigator.userAgent);
+
+                var seperator = (!isOSX || keys.length > 2) ? '+' : '';
+
+                var abbreviations = {
+                    M: isOSX ? '' : 'Ctrl',
+                    A: isOSX ? 'Option' : 'Alt',
+                    S: 'Shift'
+                };
+
+                return keys.map(function(key, index) {
+                    var last = index == keys.length - 1;
+                    return last ? key : abbreviations[key];
+                }).join(seperator);
+            };
         })
         .controller("LineCtrl", function ($scope) {
 
@@ -1073,9 +1101,8 @@
             $scope.draw = function () {
                 var canvas = document.getElementById('canvas');
                 if(canvas.getContext){
-                    $scope.ctx = canvas.getContext('2d');
-                    $scope.ctx.fillStyle('green');
-                    $scope.ctx.fillRect(10, 15, 100, 100);
+                    // $scope.ctx = canvas.getContext('2d');
+                    // $scope.ctx.fillRect(10, 15, 100, 100);
                 }
             };
 
@@ -1106,6 +1133,31 @@
             ];
 
             $scope.IVRobjectList = [
+                {name: 'Bridge', imgSrc: '../img/labels/bridge_label.svg'},
+                {name: 'DialToRecordMessage', imgSrc: '../img/labels/DialToRecordMessage_label.svg'},
+                {name: 'DigitCapture', imgSrc: '../img/labels/DigitCapture_label.svg'},
+                {name: 'EndCall', imgSrc: '../img/labels/EndCall_label.svg'},
+                {name: 'GeoRouting', imgSrc: '../img/labels/GeoRouting_label.svg'},
+                {name: 'GoToIVR', imgSrc: '../img/labels/GoToIVR_label.svg'},
+                {name: 'HoursCheck', imgSrc: '../img/labels/HoursCheck_label.svg'},
+                {name: 'PlaySound', imgSrc: '../img/labels/PlaySound_label.svg'},
+                {name: 'ReadValue', imgSrc: '../img/labels/ReadValue_label.svg'},
+                {name: 'Rest', imgSrc: '../img/labels/Rest_label.svg'},
+                {name: 'Start', imgSrc: '../img/labels/Start_label.svg'},
+                {name: 'TestValue', imgSrc: '../img/labels/TestValue_label.svg'},
+                {name: 'Voicemail', imgSrc: '../img/labels/Voicemail_label.svg'},
+                {name: 'Wait', imgSrc: '../img/labels/Wait_label.svg'}
+            ];
+
+            $scope.current_IVR_name = "No IVR loaded";
+
+            $scope.changeName = function(namePassed){
+                $scope.current_IVR_name = namePassed;
+            };
+
+        }])
+        .controller('IVR_material_menu', ['$scope', function($scope){
+            $scope.IVRobjectList = [
                 {name: 'Bridge', imgSrc: '../img/labels/bridge_label.png'},
                 {name: 'DialToRecordMessage', imgSrc: '../img/labels/DialToRecordMessage_label.png'},
                 {name: 'DigitCapture', imgSrc: '../img/labels/DigitCapture_label.png'},
@@ -1121,13 +1173,6 @@
                 {name: 'Voicemail', imgSrc: '../img/labels/Voicemail_label.png'},
                 {name: 'Wait', imgSrc: '../img/labels/Wait_label.png'}
             ];
-
-            $scope.current_IVR_name = "No IVR loaded";
-
-            $scope.changeName = function(namePassed){
-                $scope.current_IVR_name = namePassed;
-            };
-
         }])
 
         .run(['service', function (service) {
